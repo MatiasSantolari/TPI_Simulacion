@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.8.3.202304281216" AlpVersion="8.7.7">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.8.4.202307181708" AlpVersion="8.8.2">
 <Model>
 	<Id>1692489875145</Id>
 	<Name><![CDATA[Calentamiento-Global]]></Name>
@@ -228,6 +228,21 @@
 					</Properties>
 
 				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693159083671</Id>
+					<Name><![CDATA[reduccionQuemaPorAño]]></Name>
+					<X>560</X><Y>900</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[totalQuemaReduccion/77]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
 				<Variable Class="StockVariable">
 					<Id>1692503547111</Id>
 					<Name><![CDATA[CO2]]></Name>
@@ -304,7 +319,7 @@
 					<EquationStyle>classic</EquationStyle>
 					<Width>160</Width>
 					<Height>40</Height>
-						<InitialValue><![CDATA[0]]></InitialValue>
+						<InitialValue><![CDATA[3684560]]></InitialValue>
 						<Color/>
 					</Properties>
 				</Variable>
@@ -387,6 +402,30 @@
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1692504171413</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693159037824</Id>
+					<Name><![CDATA[totalQuemaReduccion]]></Name>
+					<X>380</X><Y>900</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[3349600]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693159037822</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -591,7 +630,55 @@
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
+				<Link SourceId="1693159037824" TargetId="1693159083671" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>180</X><Y>0</Y></Direction>
+					<Id>1693176235400</Id>
+					<Name><![CDATA[totalQuemaReduccion - reduccionQuemaPorAño]]></Name>
+					<X>380</X><Y>900</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
 			</Dependences>
+			<Events>
+				<Event>
+					<Id>1693177440449</Id>
+					<Name><![CDATA[reducirQuema]]></Name>
+					<X>370</X><Y>780</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="rate" Mode="cyclic">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_YEAR]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1693209600000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[QuemaComustible -= reduccionQuemaPorAño;]]></Action>
+				</Event>
+			</Events>
 			<TableFunctions>
 				<TableFunction AccessType="public" StaticFunction="false">
 					<Id>1692758961110</Id>
@@ -603,7 +690,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<InterpolationMethod>LINEAR</InterpolationMethod>
-					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeBehaviour>EXTRAPOLATE</OutOfRangeBehaviour>
 					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
 					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
 					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
@@ -653,9 +740,9 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<InterpolationMethod>LINEAR</InterpolationMethod>
-					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeBehaviour>EXTRAPOLATE</OutOfRangeBehaviour>
 					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
-					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<ApproximationOrder><![CDATA[3]]></ApproximationOrder>
 					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
 					<ValuesQuery>
 						<TableReference>
@@ -680,13 +767,14 @@
 				<TableFunction AccessType="public" StaticFunction="false">
 					<Id>1692922293004</Id>
 					<Name><![CDATA[tablaCombustibleQuemado]]></Name>
+					<Description><![CDATA[MtCO2 que emite cada GigaJoule de energía consumido/producido. ]]></Description>
 					<X>280</X><Y>840</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<InterpolationMethod>LINEAR</InterpolationMethod>
-					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeBehaviour>EXTRAPOLATE</OutOfRangeBehaviour>
 					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
 					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
 					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
@@ -700,7 +788,25 @@
 					</ValuesQuery>
 // arguments and values
 					<Argument><![CDATA[0.0]]></Argument>
+					<Argument><![CDATA[416870.0]]></Argument>
+					<Argument><![CDATA[833740.0]]></Argument>
+					<Argument><![CDATA[1250610.0]]></Argument>
+					<Argument><![CDATA[1667480.0]]></Argument>
+					<Argument><![CDATA[2084350.0]]></Argument>
+					<Argument><![CDATA[2501220.0]]></Argument>
+					<Argument><![CDATA[2918090.0]]></Argument>
+					<Argument><![CDATA[3334960.0]]></Argument>
+					<Argument><![CDATA[3751830.0]]></Argument>
 					<Value><![CDATA[0.0]]></Value>
+					<Value><![CDATA[2.0]]></Value>
+					<Value><![CDATA[9.0]]></Value>
+					<Value><![CDATA[18.0]]></Value>
+					<Value><![CDATA[32.0]]></Value>
+					<Value><![CDATA[52.5]]></Value>
+					<Value><![CDATA[75.0]]></Value>
+					<Value><![CDATA[101.5]]></Value>
+					<Value><![CDATA[128.0]]></Value>
+					<Value><![CDATA[163.8]]></Value>
 				</TableFunction>
 			</TableFunctions>
 			<AgentLinks>
@@ -834,6 +940,9 @@
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[tasa_decrecimiento_CO2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[totalQuemaReduccion]]></ParameterName>
 				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
