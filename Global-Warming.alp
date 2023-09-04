@@ -1,0 +1,3271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*************************************************
+	         AnyLogic Project File 
+*************************************************	         
+-->
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.8.4.202307181708" AlpVersion="8.8.2">
+<Model>
+	<Id>1693609356216</Id>
+	<Name><![CDATA[Global-Warming]]></Name>
+	<EngineVersion>6</EngineVersion>
+	<JavaPackageName><![CDATA[global_warming]]></JavaPackageName>
+	<ModelTimeUnit><![CDATA[Year]]></ModelTimeUnit>
+	<Dimensions>
+		<!--   =========   Dimension   ========  -->
+		<Dimension>
+			<Id>1693831103385</Id>
+			<Name><![CDATA[DepthMessure]]></Name>
+			<Type>enumeration</Type>
+			<Range><![CDATA[3]]></Range>
+			<Element>
+				<Id>1693831254761</Id>
+				<Name><![CDATA[Low]]></Name>
+				<Value>200</Value>
+			</Element>
+			<Element>
+				<Id>1693831261902</Id>
+				<Name><![CDATA[Med]]></Name>
+				<Value>700</Value>
+			</Element>
+			<Element>
+				<Id>1693831267621</Id>
+				<Name><![CDATA[Upp]]></Name>
+				<Value>950</Value>
+			</Element>
+		</Dimension>
+	</Dimensions>
+	<ActiveObjectClasses>
+		<!--   =========   Active Object Class   ========  -->
+		<ActiveObjectClass>
+			<Id>1693609356404</Id>
+			<Name><![CDATA[Main]]></Name>
+			<Generic>false</Generic>
+			<GenericParameter>
+				<Id>1693609356545</Id>
+				<Name><![CDATA[1693609356545]]></Name>
+				<GenericParameterValue Class="CodeValue">
+					<Code><![CDATA[T extends Agent]]></Code>
+				</GenericParameterValue>
+				<GenericParameterLabel><![CDATA[Generic parameter:]]></GenericParameterLabel>
+			</GenericParameter>
+			<FlowChartsUsage>ENTITY</FlowChartsUsage>
+			<SamplesToKeep>100</SamplesToKeep>
+			<LimitNumberOfArrayElements>false</LimitNumberOfArrayElements>
+			<ElementsLimitValue>100</ElementsLimitValue>
+			<MakeDefaultViewArea>true</MakeDefaultViewArea>
+			<SceneGridColor/>
+			<SceneBackgroundColor/>
+			<SceneSkybox>null</SceneSkybox>
+			<AgentProperties>
+				<EnvironmentDefinesInitialLocation>true</EnvironmentDefinesInitialLocation>
+				<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>
+				<RotateAnimationVertically>false</RotateAnimationVertically>
+				<VelocityCode Class="CodeUnitValue">
+					<Code><![CDATA[10]]></Code>
+					<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+				</VelocityCode>
+				<PhysicalLength Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalLength>
+				<PhysicalWidth Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalWidth>
+				<PhysicalHeight Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalHeight>
+			</AgentProperties>
+			<EnvironmentProperties>
+					<EnableSteps>false</EnableSteps>
+					<StepDurationCode Class="CodeUnitValue">
+						<Code><![CDATA[1.0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</StepDurationCode>
+					<SpaceType>CONTINUOUS</SpaceType>
+					<WidthCode><![CDATA[500]]></WidthCode>
+					<HeightCode><![CDATA[500]]></HeightCode>
+					<ZHeightCode><![CDATA[0]]></ZHeightCode>
+					<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
+					<RowsCountCode><![CDATA[100]]></RowsCountCode>
+					<NeigborhoodType>MOORE</NeigborhoodType>
+					<LayoutType>USER_DEF</LayoutType>
+					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
+					<NetworkType>USER_DEF</NetworkType>
+					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
+					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
+					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
+					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
+					<MCode><![CDATA[10]]></MCode>
+			</EnvironmentProperties>
+			<DatasetsCreationProperties>
+				<AutoCreate>true</AutoCreate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1693641600000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+			</DatasetsCreationProperties>
+			<ScaleRuler>
+				<Id>1693609356513</Id>
+				<Name><![CDATA[scale]]></Name>
+				<X>0</X><Y>-150</Y>
+				<PublicFlag>false</PublicFlag>
+				<PresentationFlag>false</PresentationFlag>
+				<ShowLabel>false</ShowLabel>
+				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+				<Length>100</Length>
+				<Rotation>0</Rotation>
+				<ScaleType>BASED_ON_LENGTH</ScaleType>
+				<ModelLength>10</ModelLength>
+				<LengthUnits>METER</LengthUnits>
+				<Scale>10</Scale>
+				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
+			</ScaleRuler>
+			<CurrentLevel>1693609356560</CurrentLevel>
+			<ConnectionsId>1693609356466</ConnectionsId>
+			<Variables>
+				<Variable Class="AuxVariable">
+					<Id>1693689615484</Id>
+					<Name><![CDATA[CO2inAtm]]></Name>
+					<X>250</X><Y>100</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[CO2perYear.get(2023+time(YEAR))/1000]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693694116427</Id>
+					<Name><![CDATA[GlobalN2OEmission]]></Name>
+					<X>190</X><Y>320</Y>
+					<Label><X>-30</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[N2OperYear.get(2023+time(YEAR))+NaturalN2OEmissions]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693696721692</Id>
+					<Name><![CDATA[N2ORFcoeffforCO2]]></Name>
+					<X>250</X><Y>360</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[CO2c1 * Math.sqrt(GlobalN2OEmission+constSumN2O)]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693697395975</Id>
+					<Name><![CDATA[CO2RadiativeForcing]]></Name>
+					<X>300</X><Y>230</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[(CO2RadForceCoeff+N2ORFcoeffforCO2)*Math.log(((CO2perYear.get(2023+time(YEAR))/1000)+equiCinAtm.get(2023+time(YEAR)))/PreindustrialCO2)]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693764044984</Id>
+					<Name><![CDATA[CH4RadiativeForcing]]></Name>
+					<X>150</X><Y>460</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[((CH4a3 * Math.sqrt(CH4atmConc.get(2023+time(YEAR)))) + (CH4b3 * Math.sqrt(N2OatmConc.get(2023+time(YEAR)))) + CH4d3) * (Math.sqrt(CH4atmConc.get(2023+time(YEAR))) - Math.sqrt(CH4ReferenceConc))
+]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693764962670</Id>
+					<Name><![CDATA[N2ORadiativeForcing]]></Name>
+					<X>140</X><Y>550</Y>
+					<Label><X>-35</X><Y>-30</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[N2OForcing.get(2023+time(YEAR))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693765052634</Id>
+					<Name><![CDATA[CH4yN2O_RForcing]]></Name>
+					<X>270</X><Y>500</Y>
+					<Label><X>-40</X><Y>-25</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[CH4RadiativeForcing + N2ORadiativeForcing]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693781279586</Id>
+					<Name><![CDATA[RF_Fgases]]></Name>
+					<X>310</X><Y>520</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[RFfromFGases.get(2023+time(YEAR))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693781863513</Id>
+					<Name><![CDATA[WellMixedGHGForcing]]></Name>
+					<Description><![CDATA[Relativo a 1750]]></Description>
+					<X>430</X><Y>310</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[(((CO2RadiativeForcing + CH4yN2O_RForcing)
++ RF_Fgases)+ MP_RF_Total)]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693797393184</Id>
+					<Name><![CDATA[MP_RF_Total]]></Name>
+					<Description><![CDATA[Forzamientos de los GEI regulados por el Protocolo de Montreal (excluidos los HFC, regulados en la Enmienda de Kigali pero sus ciclos están modelados explícitamente). Relativo a 1750]]></Description>
+					<X>340</X><Y>570</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[dataMPRFTotal.get(2023+time(YEAR))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693798258573</Id>
+					<Name><![CDATA[TotalOtherForcing]]></Name>
+					<X>460</X><Y>460</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[dataOtherForcings.get(2023+time(YEAR))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693798329483</Id>
+					<Name><![CDATA[TotalRadiativeForcing]]></Name>
+					<X>520</X><Y>360</Y>
+					<Label><X>-60</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[WellMixedGHGForcing + TotalOtherForcing]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693799020346</Id>
+					<Name><![CDATA[TemperatureChange1750]]></Name>
+					<X>960</X><Y>380</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[HeatInAtmAndUpperOcean / AtmAndUpperOceanHeatCap]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693799329973</Id>
+					<Name><![CDATA[ClimateFeedbackParam]]></Name>
+					<Description><![CDATA[Parámetro de retroalimentación climática: determina el efecto de retroalimentación del aumento de temperatura]]></Description>
+					<X>700</X><Y>160</Y>
+					<Label><X>-85</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[v2xCO2Forcing / Sensitivity2xCO2]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693800064176</Id>
+					<Name><![CDATA[CO2RadForceCoeffDynamic]]></Name>
+					<X>480</X><Y>60</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[CO2RFCoeffDynamic.get(2023+time(YEAR))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693800178359</Id>
+					<Name><![CDATA[v2xCO2Forcing]]></Name>
+					<X>640</X><Y>80</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[CO2RadForceCoeffDynamic * Math.log(2)]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color>-65536</Color>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693802371378</Id>
+					<Name><![CDATA[AtmAndUpperOceanHeatCap]]></Name>
+					<X>900</X><Y>200</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="true" Array="false">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[(UpperLayerVolume * VolumetricHeatCapacity) / Area]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693802573000</Id>
+					<Name><![CDATA[UpperLayerVolume]]></Name>
+					<Description><![CDATA[Volumen m^3 de tierra y capa mixta de océano.]]></Description>
+					<X>880</X><Y>100</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="true" Array="false">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[Area*((landAreaFraction*LandThickness)
++((1-landAreaFraction)*MixedDepth))]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693803270435</Id>
+					<Name><![CDATA[VolumetricHeatCapacity]]></Name>
+					<X>980</X><Y>120</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="true" Array="false">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[(MassHeatCap / SecPerYear) * Density]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693804545246</Id>
+					<Name><![CDATA[RelativeDeepOceanTemp]]></Name>
+					<X>670</X><Y>450</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[HeatInDeepOcean / DeepOceanHeatCap]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693804762557</Id>
+					<Name><![CDATA[LowerLayerVolume]]></Name>
+					<X>1040</X><Y>300</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="true" Array="false">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[Area * (1 - landAreaFraction) * 300]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693805310226</Id>
+					<Name><![CDATA[LowerLayerHeatCapacity]]></Name>
+					<X>1160</X><Y>220</Y>
+					<Label><X>-50</X><Y>-30</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[(LowerLayerVolume * VolumetricHeatCapacity) / Area]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693805507201</Id>
+					<Name><![CDATA[DeepOceanHeatCap]]></Name>
+					<X>860</X><Y>580</Y>
+					<Label><X>-15</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[LowerLayerHeatCapacity]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693805722060</Id>
+					<Name><![CDATA[HeatTransferCoeff]]></Name>
+					<X>900</X><Y>440</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[(HeatTransferRate * MeanDepthOfAdjacentLayers[0])*
+(HeatDifussionCovar + (1-HeatDifussionCovar))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693863840141</Id>
+					<Name><![CDATA[TemperatureChange1850]]></Name>
+					<Description><![CDATA[Cambio de temperatura con respecto a los datos de la media entre 1850-1900]]></Description>
+					<X>1220</X><Y>380</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[TemperatureChange1750 - MeanTempChange1750to1850]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color>-16744448</Color>
+					</Properties>
+
+				</Variable>
+				<Variable Class="StockVariable">
+					<Id>1693681551486</Id>
+					<Name><![CDATA[AtmConcCO2]]></Name>
+					<X>190</X><Y>30</Y>
+					<Label><X>-40</X><Y>-5</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Array="false">
+					<EquationStyle>classic</EquationStyle>
+					<Width>100</Width>
+					<Height>40</Height>
+						<InitialValue><![CDATA[CO2inAtm]]></InitialValue>
+						<Color/>
+					</Properties>
+				</Variable>
+				<Variable Class="StockVariable">
+					<Id>1693798613995</Id>
+					<Name><![CDATA[HeatInAtmAndUpperOcean]]></Name>
+					<X>810</X><Y>350</Y>
+					<Label><X>-70</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Array="false">
+					<EquationStyle>classic</EquationStyle>
+					<Width>160</Width>
+					<Height>40</Height>
+						<InitialValue><![CDATA[13.30505063]]></InitialValue>
+						<Color/>
+					</Properties>
+				</Variable>
+				<Variable Class="StockVariable">
+					<Id>1693804244956</Id>
+					<Name><![CDATA[HeatInDeepOcean]]></Name>
+					<X>810</X><Y>500</Y>
+					<Label><X>-50</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Array="false">
+					<EquationStyle>classic</EquationStyle>
+					<Width>160</Width>
+					<Height>40</Height>
+						<InitialValue><![CDATA[0.734106087]]></InitialValue>
+						<Color/>
+					</Properties>
+				</Variable>
+				<Variable Class="Flow">
+					<Id>1693798761391</Id>
+					<Name><![CDATA[TRF]]></Name>
+					<X>630</X><Y>350</Y>
+					<Label><X>-10</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Properties TargetId="1693798613995" External="false" Constant="false" Array="false">
+						<Formula><![CDATA[TotalRadiativeForcing]]></Formula>
+						<Color/>
+						<ValveIndex>1</ValveIndex>
+						<Points>
+							<Point><X>0</X><Y>0</Y></Point>
+							<Point><X>50</X><Y>0</Y></Point>
+							<Point><X>180</X><Y>0</Y></Point>
+						</Points>
+					</Properties>
+				</Variable>
+				<Variable Class="Flow">
+					<Id>1693799204645</Id>
+					<Name><![CDATA[FeedbackCooling]]></Name>
+					<X>810</X><Y>350</Y>
+					<Label><X>-105</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SourceId="1693798613995" External="false" Constant="false" Array="false">
+						<Formula><![CDATA[TemperatureChange1750 * ClimateFeedbackParam]]></Formula>
+						<Color/>
+						<ValveIndex>1</ValveIndex>
+						<Points>
+							<Point><X>0</X><Y>0</Y></Point>
+							<Point><X>0</X><Y>-90</Y></Point>
+							<Point><X>0</X><Y>-170</Y></Point>
+						</Points>
+					</Properties>
+				</Variable>
+				<Variable Class="Flow">
+					<Id>1693804303046</Id>
+					<Name><![CDATA[HeatTransfer]]></Name>
+					<X>810</X><Y>350</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SourceId="1693798613995" TargetId="1693804244956" External="false" Constant="false" Array="false">
+						<Formula><![CDATA[(TemperatureChange1750 - RelativeDeepOceanTemp) * HeatTransferCoeff 
+ / MeanDepthOfAdjacentLayers[0]]]></Formula>
+						<Color/>
+						<ValveIndex>1</ValveIndex>
+						<Points>
+							<Point><X>0</X><Y>0</Y></Point>
+							<Point><X>0</X><Y>75</Y></Point>
+							<Point><X>0</X><Y>150</Y></Point>
+						</Points>
+					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693609575071</Id>
+					<Name><![CDATA[Sensitivity2xCO2]]></Name>
+					<Description><![CDATA[Cambio de temperatura de equilibrio en respuesta a un 2xCO2 cambio equivalente en el forzamiento radiativo.]]></Description>
+					<X>560</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[3]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693609575008</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693609931088</Id>
+					<Name><![CDATA[CO2RadForceCoeff]]></Name>
+					<Description><![CDATA[Coeficiente de forzamiento radiativo del CO2]]></Description>
+					<X>50</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[5.35]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693609931086</Id>
+							<Label><![CDATA[CO2RadForceCoeff]]></Label>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693610009628</Id>
+					<Name><![CDATA[PreindustrialCO2]]></Name>
+					<Description><![CDATA[CO2 contenifo en atmosfera en 1750]]></Description>
+					<X>50</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[590]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693610009626</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693610215322</Id>
+					<Name><![CDATA[IniTemp1750]]></Name>
+					<Description><![CDATA[Promedio de temperatura GISS (2020) y HADCRUT5 (2020)
+anomalía ajustada a v 1750 en 1990]]></Description>
+					<X>-120</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.77]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693610215320</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693610456921</Id>
+					<Name><![CDATA[IniHeatDeepOcean]]></Name>
+					<Description><![CDATA[Calor inicial en oceano profundo (relativo a preindustrial).]]></Description>
+					<X>-120</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[9.58]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693610456919</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693610498284</Id>
+					<Name><![CDATA[HeatTransferRate]]></Name>
+					<Description><![CDATA[Tasa de transferencia de calor entre la superficie y las profundidades del océano.]]></Description>
+					<X>960</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1.23]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693610498282</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693610662651</Id>
+					<Name><![CDATA[LandThickness]]></Name>
+					<Description><![CDATA[Capacidad calorífica efectiva de la superficie terrestre, expresada como equivalente
+espesor de la capa de agua]]></Description>
+					<X>800</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[8.4]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693610662649</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693611123190</Id>
+					<Name><![CDATA[Area]]></Name>
+					<Description><![CDATA[Superficie global en m2]]></Description>
+					<X>980</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[5.1e+14]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693611123188</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693611320619</Id>
+					<Name><![CDATA[landAreaFraction]]></Name>
+					<Description><![CDATA[Fracción de la superficie global que es tierra.]]></Description>
+					<X>980</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.292]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693611320617</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693611691358</Id>
+					<Name><![CDATA[WattPerJs]]></Name>
+					<Description><![CDATA[Converts watts to J/s.]]></Description>
+					<X>-120</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693611691356</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693611787936</Id>
+					<Name><![CDATA[DaysPerYear]]></Name>
+					<X>-120</X><Y>70</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[365]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693611787934</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693611806238</Id>
+					<Name><![CDATA[SecPerDay]]></Name>
+					<X>-120</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[86400]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693611806236</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693611864366</Id>
+					<Name><![CDATA[MassHeatCap]]></Name>
+					<Description><![CDATA[Calor específico del agua, es decir, cantidad de calor en julios por kg de agua necesaria para elevar la temperatura en un grado Celsius.]]></Description>
+					<X>1060</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[4186]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693611864364</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693611958872</Id>
+					<Name><![CDATA[Density]]></Name>
+					<Description><![CDATA[Density of water, i.e., mass per volume of water in kg/m3]]></Description>
+					<X>1060</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1000]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693611958870</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693611989831</Id>
+					<Name><![CDATA[GoalForTemperature]]></Name>
+					<Description><![CDATA[Umbral supuesto de cambio de temperatura por encima del cual pueden ocurrir cambios climáticos irreversibles]]></Description>
+					<X>-120</X><Y>270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[2]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693611989829</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693612049993</Id>
+					<Name><![CDATA[JperWYr]]></Name>
+					<Description><![CDATA[365*24*60*60/1e+022; converts Joules*1e22 a watts*year]]></Description>
+					<X>-120</X><Y>320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.0000000000000031536]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693612049991</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693612241908</Id>
+					<Name><![CDATA[Offset700mHeat]]></Name>
+					<Description><![CDATA[Calibration offset]]></Description>
+					<X>-120</X><Y>370</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[-16]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693612241906</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693612273853</Id>
+					<Name><![CDATA[MeanTempChange1750to1850]]></Name>
+					<Description><![CDATA[Estimación de 0,05 grados C entre 1750 y 1850 y calculado a partir de datos de Moberg]]></Description>
+					<X>1180</X><Y>320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.05]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693612273851</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693694056845</Id>
+					<Name><![CDATA[NaturalN2OEmissions]]></Name>
+					<X>50</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[11.2]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693694056843</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693696741128</Id>
+					<Name><![CDATA[CO2c1]]></Name>
+					<X>40</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[-0.0021492]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693696741126</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693697320678</Id>
+					<Name><![CDATA[constSumN2O]]></Name>
+					<X>40</X><Y>330</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1693697320676</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693763708806</Id>
+					<Name><![CDATA[CH4a3]]></Name>
+					<X>40</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[-0.000089063]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693763708804</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693763782678</Id>
+					<Name><![CDATA[CH4b3]]></Name>
+					<X>40</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[-0.00012462]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693763782676</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693763809521</Id>
+					<Name><![CDATA[CH4d3]]></Name>
+					<X>40</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.045194]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693763809519</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693763874308</Id>
+					<Name><![CDATA[CH4ReferenceConc]]></Name>
+					<X>40</X><Y>420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[731.41]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693763874306</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693802468857</Id>
+					<Name><![CDATA[MixedDepth]]></Name>
+					<Description><![CDATA[Capa mixta de oceano profundo]]></Description>
+					<X>800</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[100]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693802468855</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693803045716</Id>
+					<Name><![CDATA[SecPerYear]]></Name>
+					<X>1140</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[31556900]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693803045714</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693806053462</Id>
+					<Name><![CDATA[HeatDifussionCovar]]></Name>
+					<X>960</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693806053460</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693861603660</Id>
+					<Name><![CDATA[MeanDepthOfAdjacentLayers]]></Name>
+					<X>960</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double[]]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[{ 200 , 700 , 950 }]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693861603658</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+			</Variables>
+			<Dependences>
+				<Link SourceId="1693689615484" TargetId="1693681551486" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-60</X><Y>-70</Y></Direction>
+					<Id>1693692423443</Id>
+					<Name><![CDATA[CO2inAtm - AtmConcCO2]]></Name>
+					<X>250</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693694056845" TargetId="1693694116427" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>130</Y></Direction>
+					<Id>1693694203045</Id>
+					<Name><![CDATA[NaturalN2OEmissions - GlobalN2OEmission]]></Name>
+					<X>50</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693694116427" TargetId="1693696721692" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>60</X><Y>40</Y></Direction>
+					<Id>1693697192296</Id>
+					<Name><![CDATA[GlobalN2OEmission - N2ORFcoeffforCO2]]></Name>
+					<X>190</X><Y>320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693696741128" TargetId="1693696721692" Polarity="null">
+					<Height>8.088</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>210</X><Y>-20</Y></Direction>
+					<Id>1693697196647</Id>
+					<Name><![CDATA[CO2c1 - N2ORFcoeffforCO2]]></Name>
+					<X>40</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693697320678" TargetId="1693696721692" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>210</X><Y>30</Y></Direction>
+					<Id>1693697361229</Id>
+					<Name><![CDATA[constSumN2O - N2ORFcoeffforCO2]]></Name>
+					<X>40</X><Y>330</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693609931088" TargetId="1693697395975" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>250</X><Y>130</Y></Direction>
+					<Id>1693697829499</Id>
+					<Name><![CDATA[CO2RadForceCoeff - CO2RadiativeForcing]]></Name>
+					<X>50</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693696721692" TargetId="1693697395975" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>50</X><Y>-130</Y></Direction>
+					<Id>1693697832876</Id>
+					<Name><![CDATA[N2ORFcoeffforCO2 - CO2RadiativeForcing]]></Name>
+					<X>250</X><Y>360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693610009628" TargetId="1693697395975" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>250</X><Y>80</Y></Direction>
+					<Id>1693698093435</Id>
+					<Name><![CDATA[PreindustrialCO2 - CO2RadiativeForcing]]></Name>
+					<X>50</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693763874308" TargetId="1693764044984" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>110</X><Y>40</Y></Direction>
+					<Id>1693764311607</Id>
+					<Name><![CDATA[CH4ReferenceConc - CH4RadiativeForcing]]></Name>
+					<X>40</X><Y>420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693763782678" TargetId="1693764044984" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>110</X><Y>0</Y></Direction>
+					<Id>1693764314797</Id>
+					<Name><![CDATA[CH4b3 - CH4RadiativeForcing]]></Name>
+					<X>40</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693763708806" TargetId="1693764044984" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>110</X><Y>20</Y></Direction>
+					<Id>1693764316772</Id>
+					<Name><![CDATA[CH4a3 - CH4RadiativeForcing]]></Name>
+					<X>40</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693763809521" TargetId="1693764044984" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>110</X><Y>-20</Y></Direction>
+					<Id>1693764319003</Id>
+					<Name><![CDATA[CH4d3 - CH4RadiativeForcing]]></Name>
+					<X>40</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693764962670" TargetId="1693765052634" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>130</X><Y>-50</Y></Direction>
+					<Id>1693765092937</Id>
+					<Name><![CDATA[N2ORadiativeForcing - CH4yN2O_RForcing]]></Name>
+					<X>140</X><Y>550</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693764044984" TargetId="1693765052634" Polarity="null">
+					<Height>7.273</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>120</X><Y>40</Y></Direction>
+					<Id>1693765094883</Id>
+					<Name><![CDATA[CH4RadiativeForcing - CH4yN2O_RForcing]]></Name>
+					<X>150</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693765052634" TargetId="1693781863513" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>160</X><Y>-190</Y></Direction>
+					<Id>1693782018622</Id>
+					<Name><![CDATA[CH4yN2O_RForcing - WellMixedGHGForcing]]></Name>
+					<X>270</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693781279586" TargetId="1693781863513" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>120</X><Y>-210</Y></Direction>
+					<Id>1693782045004</Id>
+					<Name><![CDATA[RF_Fgases - WellMixedGHGForcing]]></Name>
+					<X>310</X><Y>520</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693697395975" TargetId="1693781863513" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>130</X><Y>80</Y></Direction>
+					<Id>1693782048274</Id>
+					<Name><![CDATA[CO2RadiativeForcing - WellMixedGHGForcing]]></Name>
+					<X>300</X><Y>230</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693797393184" TargetId="1693781863513" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>90</X><Y>-260</Y></Direction>
+					<Id>1693797597153</Id>
+					<Name><![CDATA[MP_RF_Total - WellMixedGHGForcing]]></Name>
+					<X>340</X><Y>570</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693781863513" TargetId="1693798329483" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>90</X><Y>50</Y></Direction>
+					<Id>1693798383551</Id>
+					<Name><![CDATA[WellMixedGHGForcing - TotalRadiativeForcing]]></Name>
+					<X>430</X><Y>310</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693798258573" TargetId="1693798329483" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>60</X><Y>-100</Y></Direction>
+					<Id>1693798386144</Id>
+					<Name><![CDATA[TotalOtherForcing - TotalRadiativeForcing]]></Name>
+					<X>460</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693798329483" TargetId="1693798761391" Polarity="+">
+					<Height>-28.812</Height>
+					<Polarity>+</Polarity>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>160</X><Y>-10</Y></Direction>
+					<Id>1693798794565</Id>
+					<Name><![CDATA[TotalRadiativeForcing - TRF]]></Name>
+					<X>520</X><Y>360</Y>
+					<Label><X>40</X><Y>-50</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693800064176" TargetId="1693800178359" Polarity="null">
+					<Height>4.565</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>160</X><Y>20</Y></Direction>
+					<Id>1693800235010</Id>
+					<Name><![CDATA[CO2RadForceCoeffDynamic - v2xCO2Forcing]]></Name>
+					<X>480</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693609575071" TargetId="1693799329973" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>40</Y></Direction>
+					<Id>1693800575361</Id>
+					<Name><![CDATA[Sensitivity2xCO2 - ClimateFeedbackParam]]></Name>
+					<X>560</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693800178359" TargetId="1693799329973" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>60</X><Y>80</Y></Direction>
+					<Id>1693800577959</Id>
+					<Name><![CDATA[v2xCO2Forcing - ClimateFeedbackParam]]></Name>
+					<X>640</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693610662651" TargetId="1693802573000" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>80</X><Y>80</Y></Direction>
+					<Id>1693802682947</Id>
+					<Name><![CDATA[LandThickness - UpperLayerVolume]]></Name>
+					<X>800</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693611123190" TargetId="1693802573000" Polarity="null">
+					<Height>9.219</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-100</X><Y>-140</Y></Direction>
+					<Id>1693802685211</Id>
+					<Name><![CDATA[Area - UpperLayerVolume]]></Name>
+					<X>980</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693611320619" TargetId="1693802573000" Polarity="null">
+					<Height>4.744</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-100</X><Y>-100</Y></Direction>
+					<Id>1693802687380</Id>
+					<Name><![CDATA[landAreaFraction - UpperLayerVolume]]></Name>
+					<X>980</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693802468857" TargetId="1693802573000" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>80</X><Y>40</Y></Direction>
+					<Id>1693802689511</Id>
+					<Name><![CDATA[MixedDepth - UpperLayerVolume]]></Name>
+					<X>800</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693611958872" TargetId="1693803270435" Polarity="null">
+					<Height>-17.924</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-80</X><Y>60</Y></Direction>
+					<Id>1693803350331</Id>
+					<Name><![CDATA[Density - VolumetricHeatCapacity]]></Name>
+					<X>1060</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693611864366" TargetId="1693803270435" Polarity="null">
+					<Height>-20.013</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-80</X><Y>100</Y></Direction>
+					<Id>1693803352602</Id>
+					<Name><![CDATA[MassHeatCap - VolumetricHeatCapacity]]></Name>
+					<X>1060</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693803045716" TargetId="1693803270435" Polarity="null">
+					<Height>-11.531</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-160</X><Y>40</Y></Direction>
+					<Id>1693803445080</Id>
+					<Name><![CDATA[SecPerYear - VolumetricHeatCapacity]]></Name>
+					<X>1140</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693802573000" TargetId="1693802371378" Polarity="null">
+					<Height>-24.452</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>20</X><Y>100</Y></Direction>
+					<Id>1693803555021</Id>
+					<Name><![CDATA[UpperLayerVolume - AtmAndUpperOceanHeatCap]]></Name>
+					<X>880</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693803270435" TargetId="1693802371378" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-80</X><Y>80</Y></Direction>
+					<Id>1693803557559</Id>
+					<Name><![CDATA[VolumetricHeatCapacity - AtmAndUpperOceanHeatCap]]></Name>
+					<X>980</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693611123190" TargetId="1693802371378" Polarity="null">
+					<Height>-5.21</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-80</X><Y>-40</Y></Direction>
+					<Id>1693803559921</Id>
+					<Name><![CDATA[Area - AtmAndUpperOceanHeatCap]]></Name>
+					<X>980</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693798613995" TargetId="1693799020346" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>150</X><Y>30</Y></Direction>
+					<Id>1693803621351</Id>
+					<Name><![CDATA[HeatInAtmAndUpperOcean - TemperatureChange1750]]></Name>
+					<X>810</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693802371378" TargetId="1693799020346" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>60</X><Y>180</Y></Direction>
+					<Id>1693803624393</Id>
+					<Name><![CDATA[AtmAndUpperOceanHeatCap - TemperatureChange1750]]></Name>
+					<X>900</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693799020346" TargetId="1693799204645" Polarity="null">
+					<Height>-29.617</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-150</X><Y>-120</Y></Direction>
+					<Id>1693804191645</Id>
+					<Name><![CDATA[TemperatureChange1750 - FeedbackCooling]]></Name>
+					<X>960</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693799329973" TargetId="1693799204645" Polarity="null">
+					<Height>-9.984</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>110</X><Y>100</Y></Direction>
+					<Id>1693804194808</Id>
+					<Name><![CDATA[ClimateFeedbackParam - FeedbackCooling]]></Name>
+					<X>700</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693611123190" TargetId="1693804762557" Polarity="null">
+					<Height>13.94</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>60</X><Y>60</Y></Direction>
+					<Id>1693804861248</Id>
+					<Name><![CDATA[Area - LowerLayerVolume]]></Name>
+					<X>980</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693611320619" TargetId="1693804762557" Polarity="null">
+					<Height>4.625</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>60</X><Y>100</Y></Direction>
+					<Id>1693804863979</Id>
+					<Name><![CDATA[landAreaFraction - LowerLayerVolume]]></Name>
+					<X>980</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693803270435" TargetId="1693805310226" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>180</X><Y>100</Y></Direction>
+					<Id>1693805391676</Id>
+					<Name><![CDATA[VolumetricHeatCapacity - LowerLayerHeatCapacity]]></Name>
+					<X>980</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693611123190" TargetId="1693805310226" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>180</X><Y>-20</Y></Direction>
+					<Id>1693805394272</Id>
+					<Name><![CDATA[Area - LowerLayerHeatCapacity]]></Name>
+					<X>980</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693804762557" TargetId="1693805310226" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>120</X><Y>-80</Y></Direction>
+					<Id>1693805396686</Id>
+					<Name><![CDATA[LowerLayerVolume - LowerLayerHeatCapacity]]></Name>
+					<X>1040</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693805310226" TargetId="1693805507201" Polarity="null">
+					<Height>110.699</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-300</X><Y>360</Y></Direction>
+					<Id>1693805539281</Id>
+					<Name><![CDATA[LowerLayerHeatCapacity - DeepOceanHeatCap]]></Name>
+					<X>1160</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693805507201" TargetId="1693804545246" Polarity="null">
+					<Height>60.668</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-190</X><Y>-130</Y></Direction>
+					<Id>1693805592281</Id>
+					<Name><![CDATA[DeepOceanHeatCap - RelativeDeepOceanTemp]]></Name>
+					<X>860</X><Y>580</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693804244956" TargetId="1693804545246" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-140</X><Y>-50</Y></Direction>
+					<Id>1693805594882</Id>
+					<Name><![CDATA[HeatInDeepOcean - RelativeDeepOceanTemp]]></Name>
+					<X>810</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693610498284" TargetId="1693805722060" Polarity="null">
+					<Height>4.235</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-60</X><Y>-20</Y></Direction>
+					<Id>1693806383625</Id>
+					<Name><![CDATA[HeatTransferRate - HeatTransferCoeff]]></Name>
+					<X>960</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693806053462" TargetId="1693805722060" Polarity="null">
+					<Height>8.004</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-60</X><Y>0</Y></Direction>
+					<Id>1693806385846</Id>
+					<Name><![CDATA[HeatDifussionCovar - HeatTransferCoeff]]></Name>
+					<X>960</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693805722060" TargetId="1693804303046" Polarity="null">
+					<Height>4.437</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-90</X><Y>-15</Y></Direction>
+					<Id>1693806504808</Id>
+					<Name><![CDATA[HeatTransferCoeff - HeatTransfer]]></Name>
+					<X>900</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693805722060" TargetId="1693804303046" Polarity="null">
+					<Height>4.437</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-90</X><Y>-15</Y></Direction>
+					<Id>1693806504808</Id>
+					<Name><![CDATA[HeatTransferCoeff - HeatTransfer]]></Name>
+					<X>900</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693804545246" TargetId="1693804303046" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>-25</Y></Direction>
+					<Id>1693806519002</Id>
+					<Name><![CDATA[RelativeDeepOceanTemp - HeatTransfer]]></Name>
+					<X>670</X><Y>450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693799020346" TargetId="1693804303046" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-150</X><Y>45</Y></Direction>
+					<Id>1693806521972</Id>
+					<Name><![CDATA[TemperatureChange1750 - HeatTransfer]]></Name>
+					<X>960</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693861603660" TargetId="1693805722060" Polarity="null">
+					<Height>-2.136</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-60</X><Y>-60</Y></Direction>
+					<Id>1693853884615</Id>
+					<Name><![CDATA[MeanDepthOfAdjacentLayers - HeatTransferCoeff]]></Name>
+					<X>960</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693861603660" TargetId="1693804303046" Polarity="null">
+					<Height>8.073</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-150</X><Y>-75</Y></Direction>
+					<Id>1693860710410</Id>
+					<Name><![CDATA[MeanDepthOfAdjacentLayers - HeatTransfer]]></Name>
+					<X>960</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693612273853" TargetId="1693863840141" Polarity="null">
+					<Height>-16.547</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>40</X><Y>60</Y></Direction>
+					<Id>1693864587045</Id>
+					<Name><![CDATA[MeanTempChange1750to1850 - TemperatureChange1850]]></Name>
+					<X>1180</X><Y>320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693799020346" TargetId="1693863840141" Polarity="null">
+					<Height>-9.381</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>260</X><Y>0</Y></Direction>
+					<Id>1693864589154</Id>
+					<Name><![CDATA[TemperatureChange1750 - TemperatureChange1850]]></Name>
+					<X>960</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+			</Dependences>
+			<TableFunctions>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693683872303</Id>
+					<Name><![CDATA[CO2perYear]]></Name>
+					<X>310</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2001.0]]></Argument>
+					<Argument><![CDATA[2002.0]]></Argument>
+					<Argument><![CDATA[2003.0]]></Argument>
+					<Argument><![CDATA[2004.0]]></Argument>
+					<Argument><![CDATA[2005.0]]></Argument>
+					<Argument><![CDATA[2006.0]]></Argument>
+					<Argument><![CDATA[2007.0]]></Argument>
+					<Argument><![CDATA[2008.0]]></Argument>
+					<Argument><![CDATA[2009.0]]></Argument>
+					<Argument><![CDATA[2010.0]]></Argument>
+					<Argument><![CDATA[2011.0]]></Argument>
+					<Argument><![CDATA[2012.0]]></Argument>
+					<Argument><![CDATA[2013.0]]></Argument>
+					<Argument><![CDATA[2014.0]]></Argument>
+					<Argument><![CDATA[2015.0]]></Argument>
+					<Argument><![CDATA[2016.0]]></Argument>
+					<Argument><![CDATA[2017.0]]></Argument>
+					<Argument><![CDATA[2018.0]]></Argument>
+					<Argument><![CDATA[2019.0]]></Argument>
+					<Argument><![CDATA[2020.0]]></Argument>
+					<Argument><![CDATA[2021.0]]></Argument>
+					<Argument><![CDATA[2022.0]]></Argument>
+					<Argument><![CDATA[2023.0]]></Argument>
+					<Argument><![CDATA[2024.0]]></Argument>
+					<Argument><![CDATA[2025.0]]></Argument>
+					<Argument><![CDATA[2026.0]]></Argument>
+					<Argument><![CDATA[2027.0]]></Argument>
+					<Argument><![CDATA[2028.0]]></Argument>
+					<Argument><![CDATA[2029.0]]></Argument>
+					<Argument><![CDATA[2030.0]]></Argument>
+					<Argument><![CDATA[2031.0]]></Argument>
+					<Argument><![CDATA[2032.0]]></Argument>
+					<Argument><![CDATA[2033.0]]></Argument>
+					<Argument><![CDATA[2034.0]]></Argument>
+					<Argument><![CDATA[2035.0]]></Argument>
+					<Argument><![CDATA[2036.0]]></Argument>
+					<Argument><![CDATA[2037.0]]></Argument>
+					<Argument><![CDATA[2038.0]]></Argument>
+					<Argument><![CDATA[2039.0]]></Argument>
+					<Argument><![CDATA[2040.0]]></Argument>
+					<Argument><![CDATA[2041.0]]></Argument>
+					<Argument><![CDATA[2042.0]]></Argument>
+					<Argument><![CDATA[2043.0]]></Argument>
+					<Argument><![CDATA[2044.0]]></Argument>
+					<Argument><![CDATA[2045.0]]></Argument>
+					<Argument><![CDATA[2046.0]]></Argument>
+					<Argument><![CDATA[2047.0]]></Argument>
+					<Argument><![CDATA[2048.0]]></Argument>
+					<Argument><![CDATA[2049.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2051.0]]></Argument>
+					<Argument><![CDATA[2052.0]]></Argument>
+					<Argument><![CDATA[2053.0]]></Argument>
+					<Argument><![CDATA[2054.0]]></Argument>
+					<Argument><![CDATA[2055.0]]></Argument>
+					<Argument><![CDATA[2056.0]]></Argument>
+					<Argument><![CDATA[2057.0]]></Argument>
+					<Argument><![CDATA[2058.0]]></Argument>
+					<Argument><![CDATA[2059.0]]></Argument>
+					<Argument><![CDATA[2060.0]]></Argument>
+					<Argument><![CDATA[2061.0]]></Argument>
+					<Argument><![CDATA[2062.0]]></Argument>
+					<Argument><![CDATA[2063.0]]></Argument>
+					<Argument><![CDATA[2064.0]]></Argument>
+					<Argument><![CDATA[2065.0]]></Argument>
+					<Argument><![CDATA[2066.0]]></Argument>
+					<Argument><![CDATA[2067.0]]></Argument>
+					<Argument><![CDATA[2068.0]]></Argument>
+					<Argument><![CDATA[2069.0]]></Argument>
+					<Argument><![CDATA[2070.0]]></Argument>
+					<Argument><![CDATA[2071.0]]></Argument>
+					<Argument><![CDATA[2072.0]]></Argument>
+					<Argument><![CDATA[2073.0]]></Argument>
+					<Argument><![CDATA[2074.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2076.0]]></Argument>
+					<Argument><![CDATA[2077.0]]></Argument>
+					<Argument><![CDATA[2078.0]]></Argument>
+					<Argument><![CDATA[2079.0]]></Argument>
+					<Argument><![CDATA[2080.0]]></Argument>
+					<Argument><![CDATA[2081.0]]></Argument>
+					<Argument><![CDATA[2082.0]]></Argument>
+					<Argument><![CDATA[2083.0]]></Argument>
+					<Argument><![CDATA[2084.0]]></Argument>
+					<Argument><![CDATA[2085.0]]></Argument>
+					<Argument><![CDATA[2086.0]]></Argument>
+					<Argument><![CDATA[2087.0]]></Argument>
+					<Argument><![CDATA[2088.0]]></Argument>
+					<Argument><![CDATA[2089.0]]></Argument>
+					<Argument><![CDATA[2090.0]]></Argument>
+					<Argument><![CDATA[2091.0]]></Argument>
+					<Argument><![CDATA[2092.0]]></Argument>
+					<Argument><![CDATA[2093.0]]></Argument>
+					<Argument><![CDATA[2094.0]]></Argument>
+					<Argument><![CDATA[2095.0]]></Argument>
+					<Argument><![CDATA[2096.0]]></Argument>
+					<Argument><![CDATA[2097.0]]></Argument>
+					<Argument><![CDATA[2098.0]]></Argument>
+					<Argument><![CDATA[2099.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[41290.0]]></Value>
+					<Value><![CDATA[42260.0]]></Value>
+					<Value><![CDATA[43040.0]]></Value>
+					<Value><![CDATA[43800.0]]></Value>
+					<Value><![CDATA[44720.0]]></Value>
+					<Value><![CDATA[45640.0]]></Value>
+					<Value><![CDATA[46610.0]]></Value>
+					<Value><![CDATA[47830.0]]></Value>
+					<Value><![CDATA[48960.0]]></Value>
+					<Value><![CDATA[49810.0]]></Value>
+					<Value><![CDATA[50380.0]]></Value>
+					<Value><![CDATA[51190.0]]></Value>
+					<Value><![CDATA[52080.0]]></Value>
+					<Value><![CDATA[52910.0]]></Value>
+					<Value><![CDATA[53680.0]]></Value>
+					<Value><![CDATA[54410.0]]></Value>
+					<Value><![CDATA[55090.0]]></Value>
+					<Value><![CDATA[55760.0]]></Value>
+					<Value><![CDATA[56580.0]]></Value>
+					<Value><![CDATA[57380.0]]></Value>
+					<Value><![CDATA[58130.0]]></Value>
+					<Value><![CDATA[58180.0]]></Value>
+					<Value><![CDATA[57810.0]]></Value>
+					<Value><![CDATA[58240.0]]></Value>
+					<Value><![CDATA[58850.0]]></Value>
+					<Value><![CDATA[59450.0]]></Value>
+					<Value><![CDATA[60010.0]]></Value>
+					<Value><![CDATA[60520.0]]></Value>
+					<Value><![CDATA[60990.0]]></Value>
+					<Value><![CDATA[61430.0]]></Value>
+					<Value><![CDATA[61830.0]]></Value>
+					<Value><![CDATA[62210.0]]></Value>
+					<Value><![CDATA[62560.0]]></Value>
+					<Value><![CDATA[62900.0]]></Value>
+					<Value><![CDATA[63220.0]]></Value>
+					<Value><![CDATA[63540.0]]></Value>
+					<Value><![CDATA[63840.0]]></Value>
+					<Value><![CDATA[64150.0]]></Value>
+					<Value><![CDATA[64450.0]]></Value>
+					<Value><![CDATA[64750.0]]></Value>
+					<Value><![CDATA[65050.0]]></Value>
+					<Value><![CDATA[65340.0]]></Value>
+					<Value><![CDATA[65640.0]]></Value>
+					<Value><![CDATA[65930.0]]></Value>
+					<Value><![CDATA[66220.0]]></Value>
+					<Value><![CDATA[66500.0]]></Value>
+					<Value><![CDATA[66780.0]]></Value>
+					<Value><![CDATA[67050.0]]></Value>
+					<Value><![CDATA[67310.0]]></Value>
+					<Value><![CDATA[67570.0]]></Value>
+					<Value><![CDATA[67830.0]]></Value>
+					<Value><![CDATA[68080.0]]></Value>
+					<Value><![CDATA[68320.0]]></Value>
+					<Value><![CDATA[68550.0]]></Value>
+					<Value><![CDATA[68780.0]]></Value>
+					<Value><![CDATA[69000.0]]></Value>
+					<Value><![CDATA[69220.0]]></Value>
+					<Value><![CDATA[69420.0]]></Value>
+					<Value><![CDATA[69610.0]]></Value>
+					<Value><![CDATA[69800.0]]></Value>
+					<Value><![CDATA[69970.0]]></Value>
+					<Value><![CDATA[70140.0]]></Value>
+					<Value><![CDATA[70310.0]]></Value>
+					<Value><![CDATA[70460.0]]></Value>
+					<Value><![CDATA[70610.0]]></Value>
+					<Value><![CDATA[70750.0]]></Value>
+					<Value><![CDATA[70890.0]]></Value>
+					<Value><![CDATA[71020.0]]></Value>
+					<Value><![CDATA[71150.0]]></Value>
+					<Value><![CDATA[71260.0]]></Value>
+					<Value><![CDATA[71370.0]]></Value>
+					<Value><![CDATA[71480.0]]></Value>
+					<Value><![CDATA[71580.0]]></Value>
+					<Value><![CDATA[71670.0]]></Value>
+					<Value><![CDATA[71750.0]]></Value>
+					<Value><![CDATA[71830.0]]></Value>
+					<Value><![CDATA[71900.0]]></Value>
+					<Value><![CDATA[71970.0]]></Value>
+					<Value><![CDATA[72020.0]]></Value>
+					<Value><![CDATA[72060.0]]></Value>
+					<Value><![CDATA[72100.0]]></Value>
+					<Value><![CDATA[72130.0]]></Value>
+					<Value><![CDATA[72150.0]]></Value>
+					<Value><![CDATA[72170.0]]></Value>
+					<Value><![CDATA[72180.0]]></Value>
+					<Value><![CDATA[72190.0]]></Value>
+					<Value><![CDATA[72200.0]]></Value>
+					<Value><![CDATA[72200.0]]></Value>
+					<Value><![CDATA[72190.0]]></Value>
+					<Value><![CDATA[72180.0]]></Value>
+					<Value><![CDATA[72170.0]]></Value>
+					<Value><![CDATA[72150.0]]></Value>
+					<Value><![CDATA[72130.0]]></Value>
+					<Value><![CDATA[72110.0]]></Value>
+					<Value><![CDATA[72090.0]]></Value>
+					<Value><![CDATA[72070.0]]></Value>
+					<Value><![CDATA[72050.0]]></Value>
+					<Value><![CDATA[72020.0]]></Value>
+					<Value><![CDATA[71990.0]]></Value>
+					<Value><![CDATA[71960.0]]></Value>
+					<Value><![CDATA[71930.0]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693693683529</Id>
+					<Name><![CDATA[N2OperYear]]></Name>
+					<X>200</X><Y>280</Y>
+					<Label><X>-15</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2001.0]]></Argument>
+					<Argument><![CDATA[2002.0]]></Argument>
+					<Argument><![CDATA[2003.0]]></Argument>
+					<Argument><![CDATA[2004.0]]></Argument>
+					<Argument><![CDATA[2005.0]]></Argument>
+					<Argument><![CDATA[2006.0]]></Argument>
+					<Argument><![CDATA[2007.0]]></Argument>
+					<Argument><![CDATA[2008.0]]></Argument>
+					<Argument><![CDATA[2009.0]]></Argument>
+					<Argument><![CDATA[2010.0]]></Argument>
+					<Argument><![CDATA[2011.0]]></Argument>
+					<Argument><![CDATA[2012.0]]></Argument>
+					<Argument><![CDATA[2013.0]]></Argument>
+					<Argument><![CDATA[2014.0]]></Argument>
+					<Argument><![CDATA[2015.0]]></Argument>
+					<Argument><![CDATA[2016.0]]></Argument>
+					<Argument><![CDATA[2017.0]]></Argument>
+					<Argument><![CDATA[2018.0]]></Argument>
+					<Argument><![CDATA[2019.0]]></Argument>
+					<Argument><![CDATA[2020.0]]></Argument>
+					<Argument><![CDATA[2021.0]]></Argument>
+					<Argument><![CDATA[2022.0]]></Argument>
+					<Argument><![CDATA[2023.0]]></Argument>
+					<Argument><![CDATA[2024.0]]></Argument>
+					<Argument><![CDATA[2025.0]]></Argument>
+					<Argument><![CDATA[2026.0]]></Argument>
+					<Argument><![CDATA[2027.0]]></Argument>
+					<Argument><![CDATA[2028.0]]></Argument>
+					<Argument><![CDATA[2029.0]]></Argument>
+					<Argument><![CDATA[2030.0]]></Argument>
+					<Argument><![CDATA[2031.0]]></Argument>
+					<Argument><![CDATA[2032.0]]></Argument>
+					<Argument><![CDATA[2033.0]]></Argument>
+					<Argument><![CDATA[2034.0]]></Argument>
+					<Argument><![CDATA[2035.0]]></Argument>
+					<Argument><![CDATA[2036.0]]></Argument>
+					<Argument><![CDATA[2037.0]]></Argument>
+					<Argument><![CDATA[2038.0]]></Argument>
+					<Argument><![CDATA[2039.0]]></Argument>
+					<Argument><![CDATA[2040.0]]></Argument>
+					<Argument><![CDATA[2041.0]]></Argument>
+					<Argument><![CDATA[2042.0]]></Argument>
+					<Argument><![CDATA[2043.0]]></Argument>
+					<Argument><![CDATA[2044.0]]></Argument>
+					<Argument><![CDATA[2045.0]]></Argument>
+					<Argument><![CDATA[2046.0]]></Argument>
+					<Argument><![CDATA[2047.0]]></Argument>
+					<Argument><![CDATA[2048.0]]></Argument>
+					<Argument><![CDATA[2049.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2051.0]]></Argument>
+					<Argument><![CDATA[2052.0]]></Argument>
+					<Argument><![CDATA[2053.0]]></Argument>
+					<Argument><![CDATA[2054.0]]></Argument>
+					<Argument><![CDATA[2055.0]]></Argument>
+					<Argument><![CDATA[2056.0]]></Argument>
+					<Argument><![CDATA[2057.0]]></Argument>
+					<Argument><![CDATA[2058.0]]></Argument>
+					<Argument><![CDATA[2059.0]]></Argument>
+					<Argument><![CDATA[2060.0]]></Argument>
+					<Argument><![CDATA[2061.0]]></Argument>
+					<Argument><![CDATA[2062.0]]></Argument>
+					<Argument><![CDATA[2063.0]]></Argument>
+					<Argument><![CDATA[2064.0]]></Argument>
+					<Argument><![CDATA[2065.0]]></Argument>
+					<Argument><![CDATA[2066.0]]></Argument>
+					<Argument><![CDATA[2067.0]]></Argument>
+					<Argument><![CDATA[2068.0]]></Argument>
+					<Argument><![CDATA[2069.0]]></Argument>
+					<Argument><![CDATA[2070.0]]></Argument>
+					<Argument><![CDATA[2071.0]]></Argument>
+					<Argument><![CDATA[2072.0]]></Argument>
+					<Argument><![CDATA[2073.0]]></Argument>
+					<Argument><![CDATA[2074.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2076.0]]></Argument>
+					<Argument><![CDATA[2077.0]]></Argument>
+					<Argument><![CDATA[2078.0]]></Argument>
+					<Argument><![CDATA[2079.0]]></Argument>
+					<Argument><![CDATA[2080.0]]></Argument>
+					<Argument><![CDATA[2081.0]]></Argument>
+					<Argument><![CDATA[2082.0]]></Argument>
+					<Argument><![CDATA[2083.0]]></Argument>
+					<Argument><![CDATA[2084.0]]></Argument>
+					<Argument><![CDATA[2085.0]]></Argument>
+					<Argument><![CDATA[2086.0]]></Argument>
+					<Argument><![CDATA[2087.0]]></Argument>
+					<Argument><![CDATA[2088.0]]></Argument>
+					<Argument><![CDATA[2089.0]]></Argument>
+					<Argument><![CDATA[2090.0]]></Argument>
+					<Argument><![CDATA[2091.0]]></Argument>
+					<Argument><![CDATA[2092.0]]></Argument>
+					<Argument><![CDATA[2093.0]]></Argument>
+					<Argument><![CDATA[2094.0]]></Argument>
+					<Argument><![CDATA[2095.0]]></Argument>
+					<Argument><![CDATA[2096.0]]></Argument>
+					<Argument><![CDATA[2097.0]]></Argument>
+					<Argument><![CDATA[2098.0]]></Argument>
+					<Argument><![CDATA[2099.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[5.59]]></Value>
+					<Value><![CDATA[5.65]]></Value>
+					<Value><![CDATA[5.7]]></Value>
+					<Value><![CDATA[5.75]]></Value>
+					<Value><![CDATA[5.81]]></Value>
+					<Value><![CDATA[6.0]]></Value>
+					<Value><![CDATA[6.0]]></Value>
+					<Value><![CDATA[6.0]]></Value>
+					<Value><![CDATA[6.0]]></Value>
+					<Value><![CDATA[6.0]]></Value>
+					<Value><![CDATA[6.0]]></Value>
+					<Value><![CDATA[6.0]]></Value>
+					<Value><![CDATA[6.0]]></Value>
+					<Value><![CDATA[6.0]]></Value>
+					<Value><![CDATA[7.0]]></Value>
+					<Value><![CDATA[7.0]]></Value>
+					<Value><![CDATA[6.68]]></Value>
+					<Value><![CDATA[6.75]]></Value>
+					<Value><![CDATA[6.81]]></Value>
+					<Value><![CDATA[6.87]]></Value>
+					<Value><![CDATA[6.93]]></Value>
+					<Value><![CDATA[6.96]]></Value>
+					<Value><![CDATA[7.02]]></Value>
+					<Value><![CDATA[7.12]]></Value>
+					<Value><![CDATA[7.23]]></Value>
+					<Value><![CDATA[7.33]]></Value>
+					<Value><![CDATA[7.44]]></Value>
+					<Value><![CDATA[7.55]]></Value>
+					<Value><![CDATA[7.66]]></Value>
+					<Value><![CDATA[7.76]]></Value>
+					<Value><![CDATA[7.87]]></Value>
+					<Value><![CDATA[7.98]]></Value>
+					<Value><![CDATA[8.08]]></Value>
+					<Value><![CDATA[8.19]]></Value>
+					<Value><![CDATA[8.29]]></Value>
+					<Value><![CDATA[8.39]]></Value>
+					<Value><![CDATA[8.5]]></Value>
+					<Value><![CDATA[8.6]]></Value>
+					<Value><![CDATA[8.7]]></Value>
+					<Value><![CDATA[8.79]]></Value>
+					<Value><![CDATA[8.89]]></Value>
+					<Value><![CDATA[8.99]]></Value>
+					<Value><![CDATA[9.08]]></Value>
+					<Value><![CDATA[9.17]]></Value>
+					<Value><![CDATA[9.26]]></Value>
+					<Value><![CDATA[9.35]]></Value>
+					<Value><![CDATA[9.44]]></Value>
+					<Value><![CDATA[9.52]]></Value>
+					<Value><![CDATA[9.6]]></Value>
+					<Value><![CDATA[9.68]]></Value>
+					<Value><![CDATA[9.76]]></Value>
+					<Value><![CDATA[9.83]]></Value>
+					<Value><![CDATA[9.9]]></Value>
+					<Value><![CDATA[9.97]]></Value>
+					<Value><![CDATA[10.03]]></Value>
+					<Value><![CDATA[10.1]]></Value>
+					<Value><![CDATA[10.16]]></Value>
+					<Value><![CDATA[10.22]]></Value>
+					<Value><![CDATA[10.27]]></Value>
+					<Value><![CDATA[10.33]]></Value>
+					<Value><![CDATA[10.38]]></Value>
+					<Value><![CDATA[10.43]]></Value>
+					<Value><![CDATA[10.48]]></Value>
+					<Value><![CDATA[10.53]]></Value>
+					<Value><![CDATA[10.57]]></Value>
+					<Value><![CDATA[10.61]]></Value>
+					<Value><![CDATA[10.65]]></Value>
+					<Value><![CDATA[10.7]]></Value>
+					<Value><![CDATA[10.73]]></Value>
+					<Value><![CDATA[10.77]]></Value>
+					<Value><![CDATA[10.81]]></Value>
+					<Value><![CDATA[10.84]]></Value>
+					<Value><![CDATA[10.87]]></Value>
+					<Value><![CDATA[10.91]]></Value>
+					<Value><![CDATA[10.94]]></Value>
+					<Value><![CDATA[10.97]]></Value>
+					<Value><![CDATA[10.99]]></Value>
+					<Value><![CDATA[11.02]]></Value>
+					<Value><![CDATA[11.04]]></Value>
+					<Value><![CDATA[11.07]]></Value>
+					<Value><![CDATA[11.09]]></Value>
+					<Value><![CDATA[11.11]]></Value>
+					<Value><![CDATA[11.13]]></Value>
+					<Value><![CDATA[11.15]]></Value>
+					<Value><![CDATA[11.16]]></Value>
+					<Value><![CDATA[11.18]]></Value>
+					<Value><![CDATA[11.2]]></Value>
+					<Value><![CDATA[11.21]]></Value>
+					<Value><![CDATA[11.22]]></Value>
+					<Value><![CDATA[11.23]]></Value>
+					<Value><![CDATA[11.25]]></Value>
+					<Value><![CDATA[11.26]]></Value>
+					<Value><![CDATA[11.27]]></Value>
+					<Value><![CDATA[11.28]]></Value>
+					<Value><![CDATA[11.29]]></Value>
+					<Value><![CDATA[11.29]]></Value>
+					<Value><![CDATA[11.3]]></Value>
+					<Value><![CDATA[11.31]]></Value>
+					<Value><![CDATA[11.32]]></Value>
+					<Value><![CDATA[11.32]]></Value>
+					<Value><![CDATA[11.33]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693697518406</Id>
+					<Name><![CDATA[equiCinAtm]]></Name>
+					<X>310</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[760.0]]></Value>
+					<Value><![CDATA[970.0]]></Value>
+					<Value><![CDATA[1260.0]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693762100703</Id>
+					<Name><![CDATA[CH4atmConc]]></Name>
+					<X>180</X><Y>420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2005.0]]></Argument>
+					<Argument><![CDATA[2010.0]]></Argument>
+					<Argument><![CDATA[2020.0]]></Argument>
+					<Argument><![CDATA[2030.0]]></Argument>
+					<Argument><![CDATA[2040.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2060.0]]></Argument>
+					<Argument><![CDATA[2070.0]]></Argument>
+					<Argument><![CDATA[2080.0]]></Argument>
+					<Argument><![CDATA[2090.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[1753.16]]></Value>
+					<Value><![CDATA[1812.864]]></Value>
+					<Value><![CDATA[1923.651]]></Value>
+					<Value><![CDATA[2040.554]]></Value>
+					<Value><![CDATA[2170.967]]></Value>
+					<Value><![CDATA[2286.849]]></Value>
+					<Value><![CDATA[2369.574]]></Value>
+					<Value><![CDATA[2421.482]]></Value>
+					<Value><![CDATA[2440.965]]></Value>
+					<Value><![CDATA[2434.449]]></Value>
+					<Value><![CDATA[2417.141]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693763275738</Id>
+					<Name><![CDATA[N2OatmConc]]></Name>
+					<X>180</X><Y>400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2005.0]]></Argument>
+					<Argument><![CDATA[2010.0]]></Argument>
+					<Argument><![CDATA[2020.0]]></Argument>
+					<Argument><![CDATA[2030.0]]></Argument>
+					<Argument><![CDATA[2040.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2060.0]]></Argument>
+					<Argument><![CDATA[2070.0]]></Argument>
+					<Argument><![CDATA[2080.0]]></Argument>
+					<Argument><![CDATA[2090.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[319.855]]></Value>
+					<Value><![CDATA[323.69]]></Value>
+					<Value><![CDATA[331.732]]></Value>
+					<Value><![CDATA[340.943]]></Value>
+					<Value><![CDATA[350.993]]></Value>
+					<Value><![CDATA[361.561]]></Value>
+					<Value><![CDATA[372.573]]></Value>
+					<Value><![CDATA[384.043]]></Value>
+					<Value><![CDATA[395.918]]></Value>
+					<Value><![CDATA[408.142]]></Value>
+					<Value><![CDATA[420.661]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693764940442</Id>
+					<Name><![CDATA[N2OForcing]]></Name>
+					<X>160</X><Y>570</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2005.0]]></Argument>
+					<Argument><![CDATA[2010.0]]></Argument>
+					<Argument><![CDATA[2020.0]]></Argument>
+					<Argument><![CDATA[2030.0]]></Argument>
+					<Argument><![CDATA[2040.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2060.0]]></Argument>
+					<Argument><![CDATA[2070.0]]></Argument>
+					<Argument><![CDATA[2080.0]]></Argument>
+					<Argument><![CDATA[2090.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[0.156]]></Value>
+					<Value><![CDATA[0.168]]></Value>
+					<Value><![CDATA[0.193]]></Value>
+					<Value><![CDATA[0.221]]></Value>
+					<Value><![CDATA[0.252]]></Value>
+					<Value><![CDATA[0.284]]></Value>
+					<Value><![CDATA[0.316]]></Value>
+					<Value><![CDATA[0.349]]></Value>
+					<Value><![CDATA[0.383]]></Value>
+					<Value><![CDATA[0.418]]></Value>
+					<Value><![CDATA[0.452]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693781123605</Id>
+					<Name><![CDATA[RFfromFGases]]></Name>
+					<Description><![CDATA[La suma de Radiative Forcing de los F-gases]]></Description>
+					<X>360</X><Y>520</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2005.0]]></Argument>
+					<Argument><![CDATA[2010.0]]></Argument>
+					<Argument><![CDATA[2020.0]]></Argument>
+					<Argument><![CDATA[2030.0]]></Argument>
+					<Argument><![CDATA[2040.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2060.0]]></Argument>
+					<Argument><![CDATA[2070.0]]></Argument>
+					<Argument><![CDATA[2080.0]]></Argument>
+					<Argument><![CDATA[2090.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[0.021]]></Value>
+					<Value><![CDATA[0.031]]></Value>
+					<Value><![CDATA[0.0628]]></Value>
+					<Value><![CDATA[0.1032]]></Value>
+					<Value><![CDATA[0.1448]]></Value>
+					<Value><![CDATA[0.1858]]></Value>
+					<Value><![CDATA[0.2254]]></Value>
+					<Value><![CDATA[0.264]]></Value>
+					<Value><![CDATA[0.3004]]></Value>
+					<Value><![CDATA[0.331]]></Value>
+					<Value><![CDATA[0.3542]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693797321665</Id>
+					<Name><![CDATA[dataMPRFTotal]]></Name>
+					<X>370</X><Y>580</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2005.0]]></Argument>
+					<Argument><![CDATA[2010.0]]></Argument>
+					<Argument><![CDATA[2020.0]]></Argument>
+					<Argument><![CDATA[2030.0]]></Argument>
+					<Argument><![CDATA[2040.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2060.0]]></Argument>
+					<Argument><![CDATA[2070.0]]></Argument>
+					<Argument><![CDATA[2080.0]]></Argument>
+					<Argument><![CDATA[2090.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[0.333]]></Value>
+					<Value><![CDATA[0.334]]></Value>
+					<Value><![CDATA[0.321]]></Value>
+					<Value><![CDATA[0.286]]></Value>
+					<Value><![CDATA[0.239]]></Value>
+					<Value><![CDATA[0.199]]></Value>
+					<Value><![CDATA[0.17]]></Value>
+					<Value><![CDATA[0.147]]></Value>
+					<Value><![CDATA[0.128]]></Value>
+					<Value><![CDATA[0.112]]></Value>
+					<Value><![CDATA[0.099]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693797928815</Id>
+					<Name><![CDATA[dataOtherForcings]]></Name>
+					<X>440</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2005.0]]></Argument>
+					<Argument><![CDATA[2010.0]]></Argument>
+					<Argument><![CDATA[2025.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2090.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[-0.917]]></Value>
+					<Value><![CDATA[-0.809]]></Value>
+					<Value><![CDATA[-0.669]]></Value>
+					<Value><![CDATA[-0.561]]></Value>
+					<Value><![CDATA[-0.437]]></Value>
+					<Value><![CDATA[-0.303]]></Value>
+					<Value><![CDATA[-0.271]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693799568747</Id>
+					<Name><![CDATA[CO2RFCoeffDynamic]]></Name>
+					<X>460</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2005.0]]></Argument>
+					<Argument><![CDATA[2010.0]]></Argument>
+					<Argument><![CDATA[2025.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2090.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[5.283]]></Value>
+					<Value><![CDATA[5.2898]]></Value>
+					<Value><![CDATA[5.3139]]></Value>
+					<Value><![CDATA[5.35527]]></Value>
+					<Value><![CDATA[5.39808]]></Value>
+					<Value><![CDATA[5.4247]]></Value>
+					<Value><![CDATA[5.4426]]></Value>
+				</TableFunction>
+			</TableFunctions>
+			<AgentLinks>
+				<AgentLink>
+					<Id>1693609356466</Id>
+					<Name><![CDATA[connections]]></Name>
+					<X>50</X><Y>-50</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<HandleReceiveInConnections>false</HandleReceiveInConnections>
+					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
+					<AgentLinkBidirectional>true</AgentLinkBidirectional>
+					<MessageType><![CDATA[Object]]></MessageType>
+					<LineStyle>SOLID</LineStyle>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineZOrder>UNDER_AGENTS</LineZOrder>
+					<LineArrow>NONE</LineArrow>
+					<LineArrowPosition>END</LineArrowPosition>
+				</AgentLink>
+			</AgentLinks>
+
+
+			<Presentation>
+				<Level>
+					<Id>1693609356560</Id>
+					<Name><![CDATA[level]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
+
+			<Presentation>
+    			<TimePlot>
+					<Id>1693867748233</Id>
+					<Name><![CDATA[plot]]></Name>
+					<X>20</X><Y>620</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>false</OccurrenceAtTime>
+					<OccurrenceDate>1693900800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>420</Width>
+					<Height>260</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>340</Width>
+						<Height>170</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[4.5]]></VerScaleToExpression>
+					<VerScaleType>FIXED</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Cambio de Temperatura]]></Title>
+					<Id>1693867751512</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-47872</Color>
+					<Expression2><![CDATA[TemperatureChange1850]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[80]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+			</Presentation>
+
+				</Level>
+			</Presentation>
+
+		</ActiveObjectClass>
+	</ActiveObjectClasses>	
+	<DifferentialEquationsMethod>EULER</DifferentialEquationsMethod>
+	<MixedEquationsMethod>RK45_NEWTON</MixedEquationsMethod>
+	<AlgebraicEquationsMethod>MODIFIED_NEWTON</AlgebraicEquationsMethod>
+	<AbsoluteAccuracy>1.0E-5</AbsoluteAccuracy>
+	<FixedTimeStep>0.001</FixedTimeStep>
+	<RelativeAccuracy>1.0E-5</RelativeAccuracy>
+	<TimeAccuracy>1.0E-5</TimeAccuracy>
+	<Frame>
+		<Width>1000</Width>
+		<Height>600</Height>
+	</Frame>
+	<Database>
+		<Logging>false</Logging>
+		<AutoExport>false</AutoExport>
+		<ShutdownCompact>false</ShutdownCompact>
+		<ImportSettings>
+		</ImportSettings>
+		<ExportSettings>
+		</ExportSettings>
+	</Database>
+	
+	<RunConfiguration ActiveObjectClassId="1693609356404">
+		<Id>1693609356747</Id>
+		<Name><![CDATA[RunConfiguration]]></Name>
+		<MaximumMemory>512</MaximumMemory>
+		<ModelTimeProperties>
+			<StopOption><![CDATA[Stop at specified time]]></StopOption>
+			<InitialDate><![CDATA[1693526400000]]></InitialDate>	
+			<InitialTime><![CDATA[0.0]]></InitialTime>	
+			<FinalDate><![CDATA[1696118400000]]></FinalDate>	
+			<FinalTime><![CDATA[100.0]]></FinalTime>	
+		</ModelTimeProperties>
+		<AnimationProperties>
+			<StopNever>true</StopNever>
+			<ExecutionMode>realTimeScaled</ExecutionMode>
+			<RealTimeScale>1.0</RealTimeScale>
+			<EnableZoomAndPanning>true</EnableZoomAndPanning>
+			<EnableDeveloperPanel>false</EnableDeveloperPanel>
+			<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
+		</AnimationProperties>
+		<Inputs>		
+		</Inputs>
+		<Outputs>
+		</Outputs>
+	</RunConfiguration>
+	<Experiments>	
+		<!--   =========   Simulation Experiment   ========  -->
+		<SimulationExperiment ActiveObjectClassId="1693609356404">
+			<Id>1693609356732</Id>
+			<Name><![CDATA[Simulation]]></Name>
+			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
+			<MaximumMemory>512</MaximumMemory>
+			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
+			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
+			<SeedValue>1</SeedValue>
+			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
+			<VmArgs><![CDATA[]]></VmArgs>
+			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
+
+			<Presentation>
+				<Text>
+					<Id>1693609356734</Id>
+					<Name><![CDATA[text]]></Name>
+					<X>50</X><Y>30</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12490271</Color>
+					<Text><![CDATA[Global-Warming]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>24</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+			<Parameters>			
+				<Parameter>
+					<ParameterName><![CDATA[Sensitivity2xCO2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[CO2RadForceCoeff]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[PreindustrialCO2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[IniTemp1750]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[IniHeatDeepOcean]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[HeatTransferRate]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[LandThickness]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[Area]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[landAreaFraction]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[WattPerJs]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[DaysPerYear]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[SecPerDay]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[MassHeatCap]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[Density]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[GoalForTemperature]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[JperWYr]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[Offset700mHeat]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[MeanTempChange1750to1850]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[NaturalN2OEmissions]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[CO2c1]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[constSumN2O]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[CH4a3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[CH4b3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[CH4d3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[CH4ReferenceConc]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[MixedDepth]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[SecPerYear]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[HeatDifussionCovar]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[MeanDepthOfAdjacentLayers]]></ParameterName>
+				</Parameter>
+			</Parameters>			
+			<PresentationProperties>
+				<EnableZoomAndPanning>true</EnableZoomAndPanning>
+				<ExecutionMode><![CDATA[realTimeScaled]]></ExecutionMode>
+				<Title><![CDATA[Global-Warming : Simulation]]></Title>	
+				<EnableDeveloperPanel>true</EnableDeveloperPanel>
+				<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
+				<RealTimeScale>1.0</RealTimeScale>
+			</PresentationProperties>
+			<ModelTimeProperties>
+				<StopOption><![CDATA[Stop at specified date]]></StopOption>
+				<InitialDate><![CDATA[1693526400000]]></InitialDate>	
+				<InitialTime><![CDATA[0.0]]></InitialTime>	
+				<FinalDate><![CDATA[4102444800000]]></FinalDate>	
+				<FinalTime><![CDATA[76.38630136986302]]></FinalTime>	
+			</ModelTimeProperties>
+			<BypassInitialScreen>true</BypassInitialScreen>
+		</SimulationExperiment>	
+	</Experiments>
+    <RequiredLibraryReference>
+		<LibraryName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></LibraryName>
+		<VersionMajor>1</VersionMajor>
+		<VersionMinor>0</VersionMinor>
+		<VersionBuild>0</VersionBuild>
+    </RequiredLibraryReference>
+</Model>
+</AnyLogicWorkspace>
