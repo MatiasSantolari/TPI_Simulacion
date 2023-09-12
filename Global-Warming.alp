@@ -34,6 +34,53 @@
 				<Value>950</Value>
 			</Element>
 		</Dimension>
+		<!--   =========   Dimension   ========  -->
+		<Dimension>
+			<Id>1694021467201</Id>
+			<Name><![CDATA[LandUse]]></Name>
+			<Type>enumeration</Type>
+			<Range><![CDATA[]]></Range>
+			<Element>
+				<Id>1694021467202</Id>
+				<Name><![CDATA[NonAfYoungF]]></Name>
+				<Value>1</Value>
+			</Element>
+			<Element>
+				<Id>1694021467203</Id>
+				<Name><![CDATA[NonAfMedF]]></Name>
+				<Value>2</Value>
+			</Element>
+			<Element>
+				<Id>1694021467204</Id>
+				<Name><![CDATA[NonAfMatureF]]></Name>
+				<Value>3</Value>
+			</Element>
+			<Element>
+				<Id>1694021467205</Id>
+				<Name><![CDATA[AfYoungF]]></Name>
+				<Value>4</Value>
+			</Element>
+			<Element>
+				<Id>1694021467206</Id>
+				<Name><![CDATA[AfMedF]]></Name>
+				<Value>5</Value>
+			</Element>
+			<Element>
+				<Id>1694021467207</Id>
+				<Name><![CDATA[AfMatureF]]></Name>
+				<Value>6</Value>
+			</Element>
+			<Element>
+				<Id>1694021467208</Id>
+				<Name><![CDATA[Farmland]]></Name>
+				<Value>7</Value>
+			</Element>
+			<Element>
+				<Id>1694021467209</Id>
+				<Name><![CDATA[Others]]></Name>
+				<Value>0</Value>
+			</Element>
+		</Dimension>
 	</Dimensions>
 	<ActiveObjectClasses>
 		<!--   =========   Active Object Class   ========  -->
@@ -133,30 +180,15 @@
 			<ConnectionsId>1693609356466</ConnectionsId>
 			<Variables>
 				<Variable Class="AuxVariable">
-					<Id>1693689615484</Id>
-					<Name><![CDATA[CO2inAtm]]></Name>
-					<X>250</X><Y>100</Y>
-					<Label><X>0</X><Y>-20</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[CO2perYear.get(2023+time(YEAR))/1000]]></Formula>
-						<Value><![CDATA[0]]></Value>
-						<Color/>
-					</Properties>
-
-				</Variable>
-				<Variable Class="AuxVariable">
 					<Id>1693694116427</Id>
-					<Name><![CDATA[GlobalN2OEmission]]></Name>
+					<Name><![CDATA[N2OAtmConc]]></Name>
 					<X>190</X><Y>320</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[N2OperYear.get(2023+time(YEAR))+NaturalN2OEmissions]]></Formula>
+						<Formula><![CDATA[N2OperYear.get(2023+time(YEAR))]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color/>
 					</Properties>
@@ -171,7 +203,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[CO2c1 * Math.sqrt(GlobalN2OEmission+constSumN2O)]]></Formula>
+						<Formula><![CDATA[CO2c1 * Math.sqrt(N2OAtmConc)]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color/>
 					</Properties>
@@ -186,7 +218,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(CO2RadForceCoeff+N2ORFcoeffforCO2)*Math.log(((CO2perYear.get(2023+time(YEAR))/1000)+equiCinAtm.get(2023+time(YEAR)))/PreindustrialCO2)]]></Formula>
+						<Formula><![CDATA[(CO2RadForceCoeffDynamic+N2ORFcoeffforCO2)*Math.log(((CO2perYear.get(2023+time(YEAR))/1000)+equiCinAtm.get(2023+time(YEAR)))/PreindustrialCO2)]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color/>
 					</Properties>
@@ -201,7 +233,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[((CH4a3 * Math.sqrt(CH4atmConc.get(2023+time(YEAR)))) + (CH4b3 * Math.sqrt(N2OatmConc.get(2023+time(YEAR)))) + CH4d3) * (Math.sqrt(CH4atmConc.get(2023+time(YEAR))) - Math.sqrt(CH4ReferenceConc))
+						<Formula><![CDATA[((CH4a3 * Math.sqrt(CH4atmConc.get(2023+time(YEAR)))) + (CH4b3 * Math.sqrt(N2OAtmConc) + CH4d3)) * (Math.sqrt(CH4atmConc.get(2023+time(YEAR))) - Math.sqrt(CH4ReferenceConc))
 ]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color/>
@@ -381,7 +413,7 @@
 					<Id>1693802371378</Id>
 					<Name><![CDATA[AtmAndUpperOceanHeatCap]]></Name>
 					<X>900</X><Y>200</Y>
-					<Label><X>0</X><Y>-20</Y></Label>
+					<Label><X>-60</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -433,7 +465,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[HeatInDeepOcean / DeepOceanHeatCap]]></Formula>
+						<Formula><![CDATA[(HeatInDeepOcean*0.6) / DeepOceanHeatCap]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color/>
 					</Properties>
@@ -516,21 +548,810 @@
 					</Properties>
 
 				</Variable>
-				<Variable Class="StockVariable">
-					<Id>1693681551486</Id>
-					<Name><![CDATA[AtmConcCO2]]></Name>
-					<X>190</X><Y>30</Y>
-					<Label><X>-40</X><Y>-5</Y></Label>
+				<Variable Class="AuxVariable">
+					<Id>1693971542281</Id>
+					<Name><![CDATA[LandDecrease]]></Name>
+					<X>850</X><Y>-300</Y>
+					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties Array="false">
-					<EquationStyle>classic</EquationStyle>
-					<Width>100</Width>
-					<Height>40</Height>
-						<InitialValue><![CDATA[CO2inAtm]]></InitialValue>
+					<Properties External="false" Constant="false" Array="true">
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+								</Coordinate>
+								<Expression><![CDATA[LandDecreaseDeforest[LandUse]
++LandHarvestedForBioenergy[LandUse]+LandNonFuelWoodHarvest[LandUse]
++LandPerYearForestAging[LandUse]]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[Others]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[LandOtherToAgriculture+LandPerYearOfAfforestation]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693972764953</Id>
+					<Name><![CDATA[LandDeforestedToAgriculture]]></Name>
+					<X>650</X><Y>-370</Y>
+					<Label><X>-60</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[(RelativeDeforestation>-1?(DesiredDeforestationToAgriculture*(100+RelativeDeforestation)/100):DefAgriReduced)]]></Formula>
+						<Value><![CDATA[0]]></Value>
 						<Color/>
 					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693974524526</Id>
+					<Name><![CDATA[FarmlandExpansion]]></Name>
+					<X>530</X><Y>-400</Y>
+					<Label><X>-35</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[FarmlandExpansionProjection.get(2023 + time(YEAR))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693975804370</Id>
+					<Name><![CDATA[DesiredDeforestationToAgriculture]]></Name>
+					<X>560</X><Y>-340</Y>
+					<Label><X>-120</X><Y>15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[FarmlandExpansion * AgriLandExpansionFromForests]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693982577275</Id>
+					<Name><![CDATA[LandDeforestedToOther]]></Name>
+					<X>650</X><Y>-280</Y>
+					<Label><X>-70</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[(RelativeDeforestation>-1?(BAULandDeforestedToOther*(100+RelativeDeforestation)/100):DefOthReduced)]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1693982935681</Id>
+					<Name><![CDATA[BAULandDeforestedToOther]]></Name>
+					<X>500</X><Y>-290</Y>
+					<Label><X>-35</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[BAULandDefToOtherProj.get(2023 + time(YEAR))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694043297378</Id>
+					<Name><![CDATA[DefAgriReduced]]></Name>
+					<X>600</X><Y>-400</Y>
+					<Label><X>-10</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="true" Array="false">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[DesiredDeforestationToAgriculture]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694043583939</Id>
+					<Name><![CDATA[DefOthReduced]]></Name>
+					<X>570</X><Y>-240</Y>
+					<Label><X>-95</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="true" Array="false">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[BAULandDeforestedToOther]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694045088479</Id>
+					<Name><![CDATA[LandIncrease]]></Name>
+					<X>850</X><Y>-210</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[Farmland]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[LandIncreaseDeforest[Farmland] + LandOtherToAgriculture]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[Others]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[LandIncreaseDeforest[Others]]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfYoungF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[LandHarvestedForBioenergy[NonAfYoungF]+LandNonFuelWoodHarvest[NonAfYoungF]
++LandHarvestedForBioenergy[NonAfMedF]+LandNonFuelWoodHarvest[NonAfMedF]
++LandHarvestedForBioenergy[NonAfMatureF]+LandNonFuelWoodHarvest[NonAfMatureF]]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMedF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[LandPerYearForestAging[NonAfYoungF]]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[LandPerYearForestAging[NonAfMedF]]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[AfYoungF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[LandPerYearOfAfforestation]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[AfMedF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[LandPerYearForestAging[AfYoungF]]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[AfMatureF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[LandPerYearForestAging[AfMedF]]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694045494371</Id>
+					<Name><![CDATA[TotalLandArea]]></Name>
+					<X>760</X><Y>-470</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[LandArea.sum()]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694291152821</Id>
+					<Name><![CDATA[IndicatedCBioenergy]]></Name>
+					<X>1180</X><Y>-280</Y>
+					<Label><X>-20</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[TbIndicatedCBioenergy.get(2023+time(YEAR))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfYoungF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[TbIndCBioYou.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMedF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[TbIndCBioMed.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[TbIndCBioMat.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[Farmland]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[TbIndCBioFar.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694291232623</Id>
+					<Name><![CDATA[CarbonDensityBiomass]]></Name>
+					<X>1280</X><Y>-240</Y>
+					<Label><X>-20</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[TbCarbonDensBiomass.get(2023+time(YEAR))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfYoungF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[TbCarbonDensBioYou.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMedF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[TbCarbonDensBioMed.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[TbCarbonDensBioMat.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[Farmland]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[TbCarbonDensBioFar.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694291290202</Id>
+					<Name><![CDATA[BiomassRemovedwHarvesting]]></Name>
+					<X>1240</X><Y>-260</Y>
+					<Label><X>-35</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0.9]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfYoungF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[0.9]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMedF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[0.9]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[0.9]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[Farmland]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[1]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694291349349</Id>
+					<Name><![CDATA[IndicatedLandHarvestedBionergy]]></Name>
+					<X>1120</X><Y>-230</Y>
+					<Label><X>-60</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[IndicatedCBioenergy * (CarbonDensityBiomass*BiomassRemovedwHarvesting)]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfYoungF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[IndicatedCBioenergy[NonAfYoungF] / (CarbonDensityBiomass[NonAfYoungF]*BiomassRemovedwHarvesting[NonAfYoungF])]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMedF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[IndicatedCBioenergy[NonAfMedF] / (CarbonDensityBiomass[NonAfMedF]*BiomassRemovedwHarvesting[NonAfMedF])]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[IndicatedCBioenergy[NonAfMatureF] / (CarbonDensityBiomass[NonAfMatureF]*BiomassRemovedwHarvesting[NonAfMatureF])]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[Farmland]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[0]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694291441696</Id>
+					<Name><![CDATA[LandHarvestedForBioenergy]]></Name>
+					<X>1010</X><Y>-190</Y>
+					<Label><X>-90</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+								</Coordinate>
+								<Expression><![CDATA[IndicatedLandHarvestedBionergy[LandUse]*(100+RelativeDeforestation)/100]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[IndicatedLandHarvestedBionergy[NonAfMatureF]*(100+RelativeDeforestation*8)/100]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694291486558</Id>
+					<Name><![CDATA[LandNonFuelWoodHarvest]]></Name>
+					<X>1010</X><Y>-150</Y>
+					<Label><X>-85</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+								</Coordinate>
+								<Expression><![CDATA[DesiredLandIndustrialWood[LandUse]*(100+RelativeDeforestation)/100]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[DesiredLandIndustrialWood[NonAfMatureF]*(100+RelativeDeforestation*8)/100]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694298309686</Id>
+					<Name><![CDATA[DesiredLandIndustrialWood]]></Name>
+					<X>1160</X><Y>-170</Y>
+					<Label><X>-75</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfYoungF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[DesiredLandWoodYou.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMedF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[DesiredLandWoodMed.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[DesiredLandWoodMat.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694299207460</Id>
+					<Name><![CDATA[LandDecreaseDeforest]]></Name>
+					<X>770</X><Y>-350</Y>
+					<Label><X>-60</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[RelativeDeforestation>-1?(LandDeforestedToAgriculture + LandDeforestedToOther):(DefAgriReduced + DefOthReduced)]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfYoungF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[(LandDeforestedToAgriculture + LandDeforestedToOther) * FractionPerYoungForest.get(2023 + time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMedF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[(LandDeforestedToAgriculture + LandDeforestedToOther)* FractionPerMedForest.get(2023 + time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[(LandDeforestedToAgriculture + LandDeforestedToOther)* FractionPerMatureForest.get(2023 + time(YEAR))]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694299618709</Id>
+					<Name><![CDATA[LandIncreaseDeforest]]></Name>
+					<X>770</X><Y>-260</Y>
+					<Label><X>-65</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[Farmland]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[LandDeforestedToAgriculture]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[Others]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[LandDeforestedToOther]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694359333112</Id>
+					<Name><![CDATA[LandPerYearForestAging]]></Name>
+					<X>990</X><Y>-270</Y>
+					<Label><X>-35</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfYoungF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[(LandArea[NonAfYoungF] 
+- (LandHarvestedForBioenergy[NonAfYoungF] 
++ LandNonFuelWoodHarvest[NonAfYoungF])) 
+/ AvgTimeYoungMedF]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMedF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[(LandArea[NonAfMedF] 
+- (LandHarvestedForBioenergy[NonAfMedF] 
++ LandNonFuelWoodHarvest[NonAfMedF])) 
+/ AvgTimeYoungMedF]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[AfYoungF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[(LandArea[AfYoungF] 
+- LandPerYearOfAfforestation) 
+/ AvgTimeYoungMedF]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[AfMedF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[(LandArea[AfMedF])
+/ AvgTimeYoungMedF]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694359385537</Id>
+					<Name><![CDATA[AverageTimeToMaturity]]></Name>
+					<X>1170</X><Y>-340</Y>
+					<Label><X>-25</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[100]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694359923384</Id>
+					<Name><![CDATA[AvgTimeYoungMedF]]></Name>
+					<X>1030</X><Y>-310</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[AverageTimeToMaturity/2]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694368809049</Id>
+					<Name><![CDATA[LandOtherToAgriculture]]></Name>
+					<X>700</X><Y>-200</Y>
+					<Label><X>-55</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[FarmlandExpansion - LandDeforestedToAgriculture]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694449117268</Id>
+					<Name><![CDATA[TargetAffLand]]></Name>
+					<X>520</X><Y>-60</Y>
+					<Label><X>-45</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[LandAvailableForAff * PercentLandAvailableAff/100]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694449145258</Id>
+					<Name><![CDATA[LandStillToBeAff]]></Name>
+					<X>520</X><Y>-20</Y>
+					<Label><X>-40</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[(TargetAffLand*1000000)-(AfforestableLand+AfforestedLand)]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1694470821127</Id>
+					<Name><![CDATA[LandAvailableForAff]]></Name>
+					<X>380</X><Y>-20</Y>
+					<Label><X>-35</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[Math.min(MaxAvailableLandForAfforestation, LandArea.get(Others) /1000000)]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
 				</Variable>
 				<Variable Class="StockVariable">
 					<Id>1693798613995</Id>
@@ -544,7 +1365,7 @@
 					<EquationStyle>classic</EquationStyle>
 					<Width>160</Width>
 					<Height>40</Height>
-						<InitialValue><![CDATA[13.30505063]]></InitialValue>
+						<InitialValue><![CDATA[13.24]]></InitialValue>
 						<Color/>
 					</Properties>
 				</Variable>
@@ -560,7 +1381,61 @@
 					<EquationStyle>classic</EquationStyle>
 					<Width>160</Width>
 					<Height>40</Height>
-						<InitialValue><![CDATA[0.734106087]]></InitialValue>
+						<InitialValue><![CDATA[20.63]]></InitialValue>
+						<Color/>
+					</Properties>
+				</Variable>
+				<Variable Class="StockVariable">
+					<Id>1693971308178</Id>
+					<Name><![CDATA[LandArea]]></Name>
+					<X>850</X><Y>-400</Y>
+					<Label><X>-30</X><Y>-5</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Array="true">
+					<EquationStyle>classic</EquationStyle>
+					<Width>100</Width>
+					<Height>40</Height>
+						<InitialValue><![CDATA[{673603436, 430797562, 2.536e+9, 0, 0, 0, 4.882e+9, 4.207e+9}]]></InitialValue>
+						<Color>-8735452</Color>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+						</Array>
+					</Properties>
+				</Variable>
+				<Variable Class="StockVariable">
+					<Id>1694435494564</Id>
+					<Name><![CDATA[AfforestableLand]]></Name>
+					<X>650</X><Y>-110</Y>
+					<Label><X>-45</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Array="false">
+					<EquationStyle>classic</EquationStyle>
+					<Width>100</Width>
+					<Height>40</Height>
+						<InitialValue><![CDATA[0]]></InitialValue>
+						<Color/>
+					</Properties>
+				</Variable>
+				<Variable Class="StockVariable">
+					<Id>1694449448328</Id>
+					<Name><![CDATA[AfforestedLand]]></Name>
+					<X>860</X><Y>-110</Y>
+					<Label><X>-41</X><Y>2</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Array="false">
+					<EquationStyle>classic</EquationStyle>
+					<Width>100</Width>
+					<Height>40</Height>
+						<InitialValue><![CDATA[0]]></InitialValue>
 						<Color/>
 					</Properties>
 				</Variable>
@@ -611,14 +1486,115 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SourceId="1693798613995" TargetId="1693804244956" External="false" Constant="false" Array="false">
-						<Formula><![CDATA[(TemperatureChange1750 - RelativeDeepOceanTemp) * HeatTransferCoeff 
- / MeanDepthOfAdjacentLayers[0]]]></Formula>
+						<Formula><![CDATA[((TemperatureChange1750 - RelativeDeepOceanTemp) * HeatTransferCoeff) / MeanDepthOfAdjacentLayers[0]]]></Formula>
 						<Color/>
 						<ValveIndex>1</ValveIndex>
 						<Points>
 							<Point><X>0</X><Y>0</Y></Point>
 							<Point><X>0</X><Y>75</Y></Point>
 							<Point><X>0</X><Y>150</Y></Point>
+						</Points>
+					</Properties>
+				</Variable>
+				<Variable Class="Flow">
+					<Id>1693971445791</Id>
+					<Name><![CDATA[DecreaseInLandArea]]></Name>
+					<X>850</X><Y>-400</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SourceId="1693971308178" External="false" Constant="false" Array="true">
+						<Formula><![CDATA[LandDecrease]]></Formula>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+								</Coordinate>
+								<Expression><![CDATA[LandDecrease[LandUse]]]></Expression>
+							</CustomExpression>
+						</Array>
+						<ValveIndex>1</ValveIndex>
+						<Points>
+							<Point><X>0</X><Y>0</Y></Point>
+							<Point><X>100</X><Y>-40</Y></Point>
+							<Point><X>200</X><Y>-40</Y></Point>
+						</Points>
+					</Properties>
+				</Variable>
+				<Variable Class="Flow">
+					<Id>1693971482324</Id>
+					<Name><![CDATA[IncreaseInLandArea]]></Name>
+					<X>1050</X><Y>-370</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TargetId="1693971308178" External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+								</Coordinate>
+								<Expression><![CDATA[LandIncrease[LandUse]]]></Expression>
+							</CustomExpression>
+						</Array>
+						<ValveIndex>1</ValveIndex>
+						<Points>
+							<Point><X>0</X><Y>0</Y></Point>
+							<Point><X>-90</X><Y>0</Y></Point>
+							<Point><X>-200</X><Y>-30</Y></Point>
+						</Points>
+					</Properties>
+				</Variable>
+				<Variable Class="Flow">
+					<Id>1694448969571</Id>
+					<Name><![CDATA[CommittingLandToAfforestation]]></Name>
+					<X>480</X><Y>-110</Y>
+					<Label><X>-85</X><Y>-30</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TargetId="1694435494564" External="false" Constant="false" Array="false">
+						<Formula><![CDATA[Math.min(TargetAffLand*1000000, LandStillToBeAff) / YearsToSecureLandForAff]]></Formula>
+						<Color/>
+						<ValveIndex>1</ValveIndex>
+						<Points>
+							<Point><X>0</X><Y>0</Y></Point>
+							<Point><X>60</X><Y>0</Y></Point>
+							<Point><X>170</X><Y>0</Y></Point>
+						</Points>
+					</Properties>
+				</Variable>
+				<Variable Class="Flow">
+					<Id>1694449487365</Id>
+					<Name><![CDATA[LandPerYearOfAfforestation]]></Name>
+					<X>650</X><Y>-110</Y>
+					<Label><X>-60</X><Y>-30</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SourceId="1694435494564" TargetId="1694449448328" External="false" Constant="false" Array="false">
+						<Formula><![CDATA[AfforestableLand / YearsToPlantLandCommittedToAff]]></Formula>
+						<Color/>
+						<ValveIndex>1</ValveIndex>
+						<Points>
+							<Point><X>0</X><Y>0</Y></Point>
+							<Point><X>105</X><Y>0</Y></Point>
+							<Point><X>210</X><Y>0</Y></Point>
 						</Points>
 					</Properties>
 				</Variable>
@@ -640,32 +1616,6 @@
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1693609575008</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1693609931088</Id>
-					<Name><![CDATA[CO2RadForceCoeff]]></Name>
-					<Description><![CDATA[Coeficiente de forzamiento radiativo del CO2]]></Description>
-					<X>50</X><Y>100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>false</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[double]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[5.35]]></Code>
-						</DefaultValue>
-						<ParameterEditor>
-							<Id>1693609931086</Id>
-							<Label><![CDATA[CO2RadForceCoeff]]></Label>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -1074,30 +2024,6 @@ espesor de la capa de agua]]></Description>
 					</Properties>                 
 				</Variable>
 				<Variable Class="Parameter">
-					<Id>1693694056845</Id>
-					<Name><![CDATA[NaturalN2OEmissions]]></Name>
-					<X>50</X><Y>190</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[double]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[11.2]]></Code>
-						</DefaultValue>
-						<ParameterEditor>
-							<Id>1693694056843</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
 					<Id>1693696741128</Id>
 					<Name><![CDATA[CO2c1]]></Name>
 					<X>40</X><Y>380</Y>
@@ -1114,27 +2040,6 @@ espesor de la capa de agua]]></Description>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1693696741126</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1693697320678</Id>
-					<Name><![CDATA[constSumN2O]]></Name>
-					<X>40</X><Y>330</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[double]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1693697320676</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -1335,44 +2240,158 @@ espesor de la capa de agua]]></Description>
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693975700764</Id>
+					<Name><![CDATA[AgriLandExpansionFromForests]]></Name>
+					<X>510</X><Y>-360</Y>
+					<Label><X>-75</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.6]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693975700762</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1693985372732</Id>
+					<Name><![CDATA[RelativeDeforestation]]></Name>
+					<X>650</X><Y>-320</Y>
+					<Label><X>-60</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1693985372730</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1694449177748</Id>
+					<Name><![CDATA[YearsToSecureLandForAff]]></Name>
+					<X>400</X><Y>-150</Y>
+					<Label><X>-55</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[10]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1694449177746</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1694470681348</Id>
+					<Name><![CDATA[MaxAvailableLandForAfforestation]]></Name>
+					<X>320</X><Y>-40</Y>
+					<Label><X>-80</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[900]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1694470681346</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1694471017470</Id>
+					<Name><![CDATA[PercentLandAvailableAff]]></Name>
+					<X>380</X><Y>-80</Y>
+					<Label><X>-90</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1694471017468</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1694471665459</Id>
+					<Name><![CDATA[YearsToPlantLandCommittedToAff]]></Name>
+					<X>790</X><Y>-40</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[10]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1694471665457</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 			</Variables>
 			<Dependences>
-				<Link SourceId="1693689615484" TargetId="1693681551486" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>-60</X><Y>-70</Y></Direction>
-					<Id>1693692423443</Id>
-					<Name><![CDATA[CO2inAtm - AtmConcCO2]]></Name>
-					<X>250</X><Y>100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1693694056845" TargetId="1693694116427" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>140</X><Y>130</Y></Direction>
-					<Id>1693694203045</Id>
-					<Name><![CDATA[NaturalN2OEmissions - GlobalN2OEmission]]></Name>
-					<X>50</X><Y>190</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
 				<Link SourceId="1693694116427" TargetId="1693696721692" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
 					<Direction><X>60</X><Y>40</Y></Direction>
 					<Id>1693697192296</Id>
-					<Name><![CDATA[GlobalN2OEmission - N2ORFcoeffforCO2]]></Name>
+					<Name><![CDATA[N2OAtmConc - N2ORFcoeffforCO2]]></Name>
 					<X>190</X><Y>320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -1389,36 +2408,6 @@ espesor de la capa de agua]]></Description>
 					<Id>1693697196647</Id>
 					<Name><![CDATA[CO2c1 - N2ORFcoeffforCO2]]></Name>
 					<X>40</X><Y>380</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1693697320678" TargetId="1693696721692" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>210</X><Y>30</Y></Direction>
-					<Id>1693697361229</Id>
-					<Name><![CDATA[constSumN2O - N2ORFcoeffforCO2]]></Name>
-					<X>40</X><Y>330</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1693609931088" TargetId="1693697395975" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>250</X><Y>130</Y></Direction>
-					<Id>1693697829499</Id>
-					<Name><![CDATA[CO2RadForceCoeff - CO2RadiativeForcing]]></Name>
-					<X>50</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2178,7 +3167,913 @@ espesor de la capa de agua]]></Description>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
+				<Link SourceId="1693975700764" TargetId="1693975804370" Polarity="null">
+					<Height>10.41</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>50</X><Y>20</Y></Direction>
+					<Id>1693975896164</Id>
+					<Name><![CDATA[AgriLandExpansionFromForests - DesiredDeforestationToAgriculture]]></Name>
+					<X>510</X><Y>-360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693974524526" TargetId="1693975804370" Polarity="null">
+					<Height>9.468</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>30</X><Y>60</Y></Direction>
+					<Id>1693975898554</Id>
+					<Name><![CDATA[FarmlandExpansion - DesiredDeforestationToAgriculture]]></Name>
+					<X>530</X><Y>-400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693975804370" TargetId="1693972764953" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>90</X><Y>-30</Y></Direction>
+					<Id>1693979078424</Id>
+					<Name><![CDATA[DesiredDeforestationToAgriculture - LandDeforestedToAgriculture]]></Name>
+					<X>560</X><Y>-340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693982935681" TargetId="1693982577275" Polarity="null">
+					<Height>-6.48</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>150</X><Y>10</Y></Direction>
+					<Id>1693983098019</Id>
+					<Name><![CDATA[BAULandDeforestedToOther - LandDeforestedToOther]]></Name>
+					<X>500</X><Y>-290</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693971542281" TargetId="1693971445791" Polarity="null">
+					<Height>0.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>100</X><Y>-140</Y></Direction>
+					<Id>1694026923348</Id>
+					<Name><![CDATA[LandDecrease - DecreaseInLandArea]]></Name>
+					<X>850</X><Y>-300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color>-65536</Color>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694045088479" TargetId="1693971482324" Polarity="null">
+					<Height>5.344</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>110</X><Y>-160</Y></Direction>
+					<Id>1694045442383</Id>
+					<Name><![CDATA[LandIncrease - IncreaseInLandArea]]></Name>
+					<X>850</X><Y>-210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color>-16744448</Color>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693971308178" TargetId="1694045494371" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-90</X><Y>-70</Y></Direction>
+					<Id>1694045562607</Id>
+					<Name><![CDATA[LandArea - TotalLandArea]]></Name>
+					<X>850</X><Y>-400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693985372732" TargetId="1693982577275" Polarity="null">
+					<Height>9.208</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>0</X><Y>40</Y></Direction>
+					<Id>1694046531367</Id>
+					<Name><![CDATA[RelativeDeforestation - LandDeforestedToOther]]></Name>
+					<X>650</X><Y>-320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693985372732" TargetId="1693972764953" Polarity="null">
+					<Height>-4.898</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>0</X><Y>-50</Y></Direction>
+					<Id>1694046545163</Id>
+					<Name><![CDATA[RelativeDeforestation - LandDeforestedToAgriculture]]></Name>
+					<X>650</X><Y>-320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693800064176" TargetId="1693697395975" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-180</X><Y>170</Y></Direction>
+					<Id>1694111118355</Id>
+					<Name><![CDATA[CO2RadForceCoeffDynamic - CO2RadiativeForcing]]></Name>
+					<X>480</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693694116427" TargetId="1693764044984" Polarity="null">
+					<Height>-9.364</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-40</X><Y>140</Y></Direction>
+					<Id>1694111769144</Id>
+					<Name><![CDATA[N2OAtmConc - CH4RadiativeForcing]]></Name>
+					<X>190</X><Y>320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694291290202" TargetId="1694291349349" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-120</X><Y>30</Y></Direction>
+					<Id>1694293783777</Id>
+					<Name><![CDATA[BiomassRemovedwHarvesting - IndicatedLandHarvestedBionergy]]></Name>
+					<X>1240</X><Y>-260</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694291152821" TargetId="1694291349349" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-60</X><Y>50</Y></Direction>
+					<Id>1694293786308</Id>
+					<Name><![CDATA[IndicatedCBioenergy - IndicatedLandHarvestedBionergy]]></Name>
+					<X>1180</X><Y>-280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694291232623" TargetId="1694291349349" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-160</X><Y>10</Y></Direction>
+					<Id>1694293788199</Id>
+					<Name><![CDATA[CarbonDensityBiomass - IndicatedLandHarvestedBionergy]]></Name>
+					<X>1280</X><Y>-240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694291349349" TargetId="1694291441696" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-110</X><Y>40</Y></Direction>
+					<Id>1694297594212</Id>
+					<Name><![CDATA[IndicatedLandHarvestedBionergy - LandHarvestedForBioenergy]]></Name>
+					<X>1120</X><Y>-230</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694298309686" TargetId="1694291486558" Polarity="null">
+					<Height>12.164</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-150</X><Y>20</Y></Direction>
+					<Id>1694298555000</Id>
+					<Name><![CDATA[DesiredLandIndustrialWood - LandNonFuelWoodHarvest]]></Name>
+					<X>1160</X><Y>-170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693982577275" TargetId="1694299207460" Polarity="null">
+					<Height>12.897</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>120</X><Y>-70</Y></Direction>
+					<Id>1694299548423</Id>
+					<Name><![CDATA[LandDeforestedToOther - LandDecreaseDeforest]]></Name>
+					<X>650</X><Y>-280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693972764953" TargetId="1694299207460" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>120</X><Y>20</Y></Direction>
+					<Id>1694299550242</Id>
+					<Name><![CDATA[LandDeforestedToAgriculture - LandDecreaseDeforest]]></Name>
+					<X>650</X><Y>-370</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693972764953" TargetId="1694299618709" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>120</X><Y>110</Y></Direction>
+					<Id>1694299691713</Id>
+					<Name><![CDATA[LandDeforestedToAgriculture - LandIncreaseDeforest]]></Name>
+					<X>650</X><Y>-370</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693982577275" TargetId="1694299618709" Polarity="null">
+					<Height>29.068</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>120</X><Y>20</Y></Direction>
+					<Id>1694299700345</Id>
+					<Name><![CDATA[LandDeforestedToOther - LandIncreaseDeforest]]></Name>
+					<X>650</X><Y>-280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694299207460" TargetId="1693971542281" Polarity="null">
+					<Height>12.485</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>80</X><Y>50</Y></Direction>
+					<Id>1694299952983</Id>
+					<Name><![CDATA[LandDecreaseDeforest - LandDecrease]]></Name>
+					<X>770</X><Y>-350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694299618709" TargetId="1694045088479" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>80</X><Y>50</Y></Direction>
+					<Id>1694300039687</Id>
+					<Name><![CDATA[LandIncreaseDeforest - LandIncrease]]></Name>
+					<X>770</X><Y>-260</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694291441696" TargetId="1693971542281" Polarity="null">
+					<Height>-41.615</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-160</X><Y>-110</Y></Direction>
+					<Id>1694357177612</Id>
+					<Name><![CDATA[LandHarvestedForBioenergy - LandDecrease]]></Name>
+					<X>1010</X><Y>-190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694291486558" TargetId="1693971542281" Polarity="null">
+					<Height>19.69</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-160</X><Y>-150</Y></Direction>
+					<Id>1694357217074</Id>
+					<Name><![CDATA[LandNonFuelWoodHarvest - LandDecrease]]></Name>
+					<X>1010</X><Y>-150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694291441696" TargetId="1694045088479" Polarity="null">
+					<Height>-5.97</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-160</X><Y>-20</Y></Direction>
+					<Id>1694357540008</Id>
+					<Name><![CDATA[LandHarvestedForBioenergy - LandIncrease]]></Name>
+					<X>1010</X><Y>-190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694291486558" TargetId="1694045088479" Polarity="null">
+					<Height>24.097</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-160</X><Y>-60</Y></Direction>
+					<Id>1694357546368</Id>
+					<Name><![CDATA[LandNonFuelWoodHarvest - LandIncrease]]></Name>
+					<X>1010</X><Y>-150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694359385537" TargetId="1694359923384" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-140</X><Y>30</Y></Direction>
+					<Id>1694359960136</Id>
+					<Name><![CDATA[AverageTimeToMaturity - AvgTimeYoungMedF]]></Name>
+					<X>1170</X><Y>-340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694291441696" TargetId="1694359333112" Polarity="null">
+					<Height>-21.218</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-20</X><Y>-80</Y></Direction>
+					<Id>1694360013841</Id>
+					<Name><![CDATA[LandHarvestedForBioenergy - LandPerYearForestAging]]></Name>
+					<X>1010</X><Y>-190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694291486558" TargetId="1694359333112" Polarity="null">
+					<Height>-39.782</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-20</X><Y>-120</Y></Direction>
+					<Id>1694360018794</Id>
+					<Name><![CDATA[LandNonFuelWoodHarvest - LandPerYearForestAging]]></Name>
+					<X>1010</X><Y>-150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694359923384" TargetId="1694359333112" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-40</X><Y>40</Y></Direction>
+					<Id>1694360022762</Id>
+					<Name><![CDATA[AvgTimeYoungMedF - LandPerYearForestAging]]></Name>
+					<X>1030</X><Y>-310</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693971308178" TargetId="1694359333112" Polarity="null">
+					<Height>0.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>130</Y></Direction>
+					<Id>1694360025669</Id>
+					<Name><![CDATA[LandArea - LandPerYearForestAging]]></Name>
+					<X>850</X><Y>-400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694359333112" TargetId="1693971542281" Polarity="null">
+					<Height>3.087</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-140</X><Y>-30</Y></Direction>
+					<Id>1694366020539</Id>
+					<Name><![CDATA[LandPerYearForestAging - LandDecrease]]></Name>
+					<X>990</X><Y>-270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694359333112" TargetId="1694045088479" Polarity="null">
+					<Height>9.134</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-140</X><Y>60</Y></Direction>
+					<Id>1694366246009</Id>
+					<Name><![CDATA[LandPerYearForestAging - LandIncrease]]></Name>
+					<X>990</X><Y>-270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693974524526" TargetId="1694368809049" Polarity="null">
+					<Height>-56.512</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>170</X><Y>200</Y></Direction>
+					<Id>1694369061041</Id>
+					<Name><![CDATA[FarmlandExpansion - LandOtherToAgriculture]]></Name>
+					<X>530</X><Y>-400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693972764953" TargetId="1694368809049" Polarity="null">
+					<Height>29.013</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>50</X><Y>170</Y></Direction>
+					<Id>1694369103292</Id>
+					<Name><![CDATA[LandDeforestedToAgriculture - LandOtherToAgriculture]]></Name>
+					<X>650</X><Y>-370</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694368809049" TargetId="1693971542281" Polarity="null">
+					<Height>-15.336</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>150</X><Y>-100</Y></Direction>
+					<Id>1694369789347</Id>
+					<Name><![CDATA[LandOtherToAgriculture - LandDecrease]]></Name>
+					<X>700</X><Y>-200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694368809049" TargetId="1694045088479" Polarity="null">
+					<Height>0.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>150</X><Y>-10</Y></Direction>
+					<Id>1694369862363</Id>
+					<Name><![CDATA[LandOtherToAgriculture - LandIncrease]]></Name>
+					<X>700</X><Y>-200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693975804370" TargetId="1694043297378" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>40</X><Y>-60</Y></Direction>
+					<Id>1694399690310</Id>
+					<Name><![CDATA[DesiredDeforestationToAgriculture - DefAgriReduced]]></Name>
+					<X>560</X><Y>-340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694043297378" TargetId="1693972764953" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>50</X><Y>30</Y></Direction>
+					<Id>1694399801499</Id>
+					<Name><![CDATA[DefAgriReduced - LandDeforestedToAgriculture]]></Name>
+					<X>600</X><Y>-400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693982935681" TargetId="1694043583939" Polarity="null">
+					<Height>-15.017</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>70</X><Y>50</Y></Direction>
+					<Id>1694400186790</Id>
+					<Name><![CDATA[BAULandDeforestedToOther - DefOthReduced]]></Name>
+					<X>500</X><Y>-290</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694043583939" TargetId="1693982577275" Polarity="null">
+					<Height>-17.447</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>80</X><Y>-40</Y></Direction>
+					<Id>1694400390794</Id>
+					<Name><![CDATA[DefOthReduced - LandDeforestedToOther]]></Name>
+					<X>570</X><Y>-240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693985372732" TargetId="1694291441696" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>360</X><Y>130</Y></Direction>
+					<Id>1694404809509</Id>
+					<Name><![CDATA[RelativeDeforestation - LandHarvestedForBioenergy]]></Name>
+					<X>650</X><Y>-320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693985372732" TargetId="1694291486558" Polarity="null">
+					<Height>-40.593</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>360</X><Y>170</Y></Direction>
+					<Id>1694404874962</Id>
+					<Name><![CDATA[RelativeDeforestation - LandNonFuelWoodHarvest]]></Name>
+					<X>650</X><Y>-320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694449177748" TargetId="1694448969571" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>40</Y></Direction>
+					<Id>1694449351083</Id>
+					<Name><![CDATA[YearsToSecureLandForAff - CommittingLandToAfforestation]]></Name>
+					<X>400</X><Y>-150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694449145258" TargetId="1694448969571" Polarity="null">
+					<Height>-33.664</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>20</X><Y>-90</Y></Direction>
+					<Id>1694449354097</Id>
+					<Name><![CDATA[LandStillToBeAff - CommittingLandToAfforestation]]></Name>
+					<X>520</X><Y>-20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694449117268" TargetId="1694448969571" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>20</X><Y>-50</Y></Direction>
+					<Id>1694449356687</Id>
+					<Name><![CDATA[TargetAffLand - CommittingLandToAfforestation]]></Name>
+					<X>520</X><Y>-60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694435494564" TargetId="1694449145258" Polarity="null">
+					<Height>30.802</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-130</X><Y>90</Y></Direction>
+					<Id>1694449595076</Id>
+					<Name><![CDATA[AfforestableLand - LandStillToBeAff]]></Name>
+					<X>650</X><Y>-110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694449448328" TargetId="1694449145258" Polarity="null">
+					<Height>27.384</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-340</X><Y>90</Y></Direction>
+					<Id>1694449597102</Id>
+					<Name><![CDATA[AfforestedLand - LandStillToBeAff]]></Name>
+					<X>860</X><Y>-110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694449117268" TargetId="1694449145258" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>0</X><Y>40</Y></Direction>
+					<Id>1694449598876</Id>
+					<Name><![CDATA[TargetAffLand - LandStillToBeAff]]></Name>
+					<X>520</X><Y>-60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694435494564" TargetId="1694449487365" Polarity="null">
+					<Height>-43.002</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>105</X><Y>0</Y></Direction>
+					<Id>1694449699068</Id>
+					<Name><![CDATA[AfforestableLand - LandPerYearOfAfforestation]]></Name>
+					<X>650</X><Y>-110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1693971308178" TargetId="1694470821127" Polarity="null">
+					<Height>0.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-470</X><Y>380</Y></Direction>
+					<Id>1694470941977</Id>
+					<Name><![CDATA[LandArea - LandAvailableForAff]]></Name>
+					<X>850</X><Y>-400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694470681348" TargetId="1694470821127" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>60</X><Y>20</Y></Direction>
+					<Id>1694470945686</Id>
+					<Name><![CDATA[MaxAvailableLandForAfforestation - LandAvailableForAff]]></Name>
+					<X>320</X><Y>-40</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694471017470" TargetId="1694449117268" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>20</Y></Direction>
+					<Id>1694471468808</Id>
+					<Name><![CDATA[PercentLandAvailableAff - TargetAffLand]]></Name>
+					<X>380</X><Y>-80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694470821127" TargetId="1694449117268" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>140</X><Y>-40</Y></Direction>
+					<Id>1694471471061</Id>
+					<Name><![CDATA[LandAvailableForAff - TargetAffLand]]></Name>
+					<X>380</X><Y>-20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694471665459" TargetId="1694449487365" Polarity="null">
+					<Height>9.854</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-35</X><Y>-70</Y></Direction>
+					<Id>1694471757990</Id>
+					<Name><![CDATA[YearsToPlantLandCommittedToAff - LandPerYearOfAfforestation]]></Name>
+					<X>790</X><Y>-40</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694449487365" TargetId="1693971542281" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>95</X><Y>-190</Y></Direction>
+					<Id>1694472391981</Id>
+					<Name><![CDATA[LandPerYearOfAfforestation - LandDecrease]]></Name>
+					<X>755</X><Y>-110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694449487365" TargetId="1694045088479" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>95</X><Y>-100</Y></Direction>
+					<Id>1694472420934</Id>
+					<Name><![CDATA[LandPerYearOfAfforestation - LandIncrease]]></Name>
+					<X>755</X><Y>-110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1694449487365" TargetId="1694359333112" Polarity="null">
+					<Height>-16.3</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>235</X><Y>-160</Y></Direction>
+					<Id>1694526145123</Id>
+					<Name><![CDATA[LandPerYearOfAfforestation - LandPerYearForestAging]]></Name>
+					<X>755</X><Y>-110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
 			</Dependences>
+			<Events>
+				<Event>
+					<Id>1694401230771</Id>
+					<Name><![CDATA[ReduceDef]]></Name>
+					<X>770</X><Y>-300</Y>
+					<Label><X>-25</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="rate" Mode="occuresOnce">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_YEAR]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1694419200000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[DefAgriReduced *= (100+RelativeDeforestation)/100;
+if(time(YEAR) > 15) {
+	DefOthReduced *= (100+RelativeDeforestation)/100;
+}]]></Action>
+				</Event>
+			</Events>
 			<TableFunctions>
 				<TableFunction AccessType="public" StaticFunction="false">
 					<Id>1693683872303</Id>
@@ -2427,208 +4322,28 @@ espesor de la capa de agua]]></Description>
 							</ValueColumnReference>
 					</ValuesQuery>
 // arguments and values
-					<Argument><![CDATA[2000.0]]></Argument>
-					<Argument><![CDATA[2001.0]]></Argument>
-					<Argument><![CDATA[2002.0]]></Argument>
-					<Argument><![CDATA[2003.0]]></Argument>
-					<Argument><![CDATA[2004.0]]></Argument>
 					<Argument><![CDATA[2005.0]]></Argument>
-					<Argument><![CDATA[2006.0]]></Argument>
-					<Argument><![CDATA[2007.0]]></Argument>
-					<Argument><![CDATA[2008.0]]></Argument>
-					<Argument><![CDATA[2009.0]]></Argument>
 					<Argument><![CDATA[2010.0]]></Argument>
-					<Argument><![CDATA[2011.0]]></Argument>
-					<Argument><![CDATA[2012.0]]></Argument>
-					<Argument><![CDATA[2013.0]]></Argument>
-					<Argument><![CDATA[2014.0]]></Argument>
-					<Argument><![CDATA[2015.0]]></Argument>
-					<Argument><![CDATA[2016.0]]></Argument>
-					<Argument><![CDATA[2017.0]]></Argument>
-					<Argument><![CDATA[2018.0]]></Argument>
-					<Argument><![CDATA[2019.0]]></Argument>
 					<Argument><![CDATA[2020.0]]></Argument>
-					<Argument><![CDATA[2021.0]]></Argument>
-					<Argument><![CDATA[2022.0]]></Argument>
-					<Argument><![CDATA[2023.0]]></Argument>
-					<Argument><![CDATA[2024.0]]></Argument>
-					<Argument><![CDATA[2025.0]]></Argument>
-					<Argument><![CDATA[2026.0]]></Argument>
-					<Argument><![CDATA[2027.0]]></Argument>
-					<Argument><![CDATA[2028.0]]></Argument>
-					<Argument><![CDATA[2029.0]]></Argument>
 					<Argument><![CDATA[2030.0]]></Argument>
-					<Argument><![CDATA[2031.0]]></Argument>
-					<Argument><![CDATA[2032.0]]></Argument>
-					<Argument><![CDATA[2033.0]]></Argument>
-					<Argument><![CDATA[2034.0]]></Argument>
-					<Argument><![CDATA[2035.0]]></Argument>
-					<Argument><![CDATA[2036.0]]></Argument>
-					<Argument><![CDATA[2037.0]]></Argument>
-					<Argument><![CDATA[2038.0]]></Argument>
-					<Argument><![CDATA[2039.0]]></Argument>
 					<Argument><![CDATA[2040.0]]></Argument>
-					<Argument><![CDATA[2041.0]]></Argument>
-					<Argument><![CDATA[2042.0]]></Argument>
-					<Argument><![CDATA[2043.0]]></Argument>
-					<Argument><![CDATA[2044.0]]></Argument>
-					<Argument><![CDATA[2045.0]]></Argument>
-					<Argument><![CDATA[2046.0]]></Argument>
-					<Argument><![CDATA[2047.0]]></Argument>
-					<Argument><![CDATA[2048.0]]></Argument>
-					<Argument><![CDATA[2049.0]]></Argument>
 					<Argument><![CDATA[2050.0]]></Argument>
-					<Argument><![CDATA[2051.0]]></Argument>
-					<Argument><![CDATA[2052.0]]></Argument>
-					<Argument><![CDATA[2053.0]]></Argument>
-					<Argument><![CDATA[2054.0]]></Argument>
-					<Argument><![CDATA[2055.0]]></Argument>
-					<Argument><![CDATA[2056.0]]></Argument>
-					<Argument><![CDATA[2057.0]]></Argument>
-					<Argument><![CDATA[2058.0]]></Argument>
-					<Argument><![CDATA[2059.0]]></Argument>
 					<Argument><![CDATA[2060.0]]></Argument>
-					<Argument><![CDATA[2061.0]]></Argument>
-					<Argument><![CDATA[2062.0]]></Argument>
-					<Argument><![CDATA[2063.0]]></Argument>
-					<Argument><![CDATA[2064.0]]></Argument>
-					<Argument><![CDATA[2065.0]]></Argument>
-					<Argument><![CDATA[2066.0]]></Argument>
-					<Argument><![CDATA[2067.0]]></Argument>
-					<Argument><![CDATA[2068.0]]></Argument>
-					<Argument><![CDATA[2069.0]]></Argument>
 					<Argument><![CDATA[2070.0]]></Argument>
-					<Argument><![CDATA[2071.0]]></Argument>
-					<Argument><![CDATA[2072.0]]></Argument>
-					<Argument><![CDATA[2073.0]]></Argument>
-					<Argument><![CDATA[2074.0]]></Argument>
-					<Argument><![CDATA[2075.0]]></Argument>
-					<Argument><![CDATA[2076.0]]></Argument>
-					<Argument><![CDATA[2077.0]]></Argument>
-					<Argument><![CDATA[2078.0]]></Argument>
-					<Argument><![CDATA[2079.0]]></Argument>
 					<Argument><![CDATA[2080.0]]></Argument>
-					<Argument><![CDATA[2081.0]]></Argument>
-					<Argument><![CDATA[2082.0]]></Argument>
-					<Argument><![CDATA[2083.0]]></Argument>
-					<Argument><![CDATA[2084.0]]></Argument>
-					<Argument><![CDATA[2085.0]]></Argument>
-					<Argument><![CDATA[2086.0]]></Argument>
-					<Argument><![CDATA[2087.0]]></Argument>
-					<Argument><![CDATA[2088.0]]></Argument>
-					<Argument><![CDATA[2089.0]]></Argument>
 					<Argument><![CDATA[2090.0]]></Argument>
-					<Argument><![CDATA[2091.0]]></Argument>
-					<Argument><![CDATA[2092.0]]></Argument>
-					<Argument><![CDATA[2093.0]]></Argument>
-					<Argument><![CDATA[2094.0]]></Argument>
-					<Argument><![CDATA[2095.0]]></Argument>
-					<Argument><![CDATA[2096.0]]></Argument>
-					<Argument><![CDATA[2097.0]]></Argument>
-					<Argument><![CDATA[2098.0]]></Argument>
-					<Argument><![CDATA[2099.0]]></Argument>
 					<Argument><![CDATA[2100.0]]></Argument>
-					<Value><![CDATA[5.59]]></Value>
-					<Value><![CDATA[5.65]]></Value>
-					<Value><![CDATA[5.7]]></Value>
-					<Value><![CDATA[5.75]]></Value>
-					<Value><![CDATA[5.81]]></Value>
-					<Value><![CDATA[6.0]]></Value>
-					<Value><![CDATA[6.0]]></Value>
-					<Value><![CDATA[6.0]]></Value>
-					<Value><![CDATA[6.0]]></Value>
-					<Value><![CDATA[6.0]]></Value>
-					<Value><![CDATA[6.0]]></Value>
-					<Value><![CDATA[6.0]]></Value>
-					<Value><![CDATA[6.0]]></Value>
-					<Value><![CDATA[6.0]]></Value>
-					<Value><![CDATA[7.0]]></Value>
-					<Value><![CDATA[7.0]]></Value>
-					<Value><![CDATA[6.68]]></Value>
-					<Value><![CDATA[6.75]]></Value>
-					<Value><![CDATA[6.81]]></Value>
-					<Value><![CDATA[6.87]]></Value>
-					<Value><![CDATA[6.93]]></Value>
-					<Value><![CDATA[6.96]]></Value>
-					<Value><![CDATA[7.02]]></Value>
-					<Value><![CDATA[7.12]]></Value>
-					<Value><![CDATA[7.23]]></Value>
-					<Value><![CDATA[7.33]]></Value>
-					<Value><![CDATA[7.44]]></Value>
-					<Value><![CDATA[7.55]]></Value>
-					<Value><![CDATA[7.66]]></Value>
-					<Value><![CDATA[7.76]]></Value>
-					<Value><![CDATA[7.87]]></Value>
-					<Value><![CDATA[7.98]]></Value>
-					<Value><![CDATA[8.08]]></Value>
-					<Value><![CDATA[8.19]]></Value>
-					<Value><![CDATA[8.29]]></Value>
-					<Value><![CDATA[8.39]]></Value>
-					<Value><![CDATA[8.5]]></Value>
-					<Value><![CDATA[8.6]]></Value>
-					<Value><![CDATA[8.7]]></Value>
-					<Value><![CDATA[8.79]]></Value>
-					<Value><![CDATA[8.89]]></Value>
-					<Value><![CDATA[8.99]]></Value>
-					<Value><![CDATA[9.08]]></Value>
-					<Value><![CDATA[9.17]]></Value>
-					<Value><![CDATA[9.26]]></Value>
-					<Value><![CDATA[9.35]]></Value>
-					<Value><![CDATA[9.44]]></Value>
-					<Value><![CDATA[9.52]]></Value>
-					<Value><![CDATA[9.6]]></Value>
-					<Value><![CDATA[9.68]]></Value>
-					<Value><![CDATA[9.76]]></Value>
-					<Value><![CDATA[9.83]]></Value>
-					<Value><![CDATA[9.9]]></Value>
-					<Value><![CDATA[9.97]]></Value>
-					<Value><![CDATA[10.03]]></Value>
-					<Value><![CDATA[10.1]]></Value>
-					<Value><![CDATA[10.16]]></Value>
-					<Value><![CDATA[10.22]]></Value>
-					<Value><![CDATA[10.27]]></Value>
-					<Value><![CDATA[10.33]]></Value>
-					<Value><![CDATA[10.38]]></Value>
-					<Value><![CDATA[10.43]]></Value>
-					<Value><![CDATA[10.48]]></Value>
-					<Value><![CDATA[10.53]]></Value>
-					<Value><![CDATA[10.57]]></Value>
-					<Value><![CDATA[10.61]]></Value>
-					<Value><![CDATA[10.65]]></Value>
-					<Value><![CDATA[10.7]]></Value>
-					<Value><![CDATA[10.73]]></Value>
-					<Value><![CDATA[10.77]]></Value>
-					<Value><![CDATA[10.81]]></Value>
-					<Value><![CDATA[10.84]]></Value>
-					<Value><![CDATA[10.87]]></Value>
-					<Value><![CDATA[10.91]]></Value>
-					<Value><![CDATA[10.94]]></Value>
-					<Value><![CDATA[10.97]]></Value>
-					<Value><![CDATA[10.99]]></Value>
-					<Value><![CDATA[11.02]]></Value>
-					<Value><![CDATA[11.04]]></Value>
-					<Value><![CDATA[11.07]]></Value>
-					<Value><![CDATA[11.09]]></Value>
-					<Value><![CDATA[11.11]]></Value>
-					<Value><![CDATA[11.13]]></Value>
-					<Value><![CDATA[11.15]]></Value>
-					<Value><![CDATA[11.16]]></Value>
-					<Value><![CDATA[11.18]]></Value>
-					<Value><![CDATA[11.2]]></Value>
-					<Value><![CDATA[11.21]]></Value>
-					<Value><![CDATA[11.22]]></Value>
-					<Value><![CDATA[11.23]]></Value>
-					<Value><![CDATA[11.25]]></Value>
-					<Value><![CDATA[11.26]]></Value>
-					<Value><![CDATA[11.27]]></Value>
-					<Value><![CDATA[11.28]]></Value>
-					<Value><![CDATA[11.29]]></Value>
-					<Value><![CDATA[11.29]]></Value>
-					<Value><![CDATA[11.3]]></Value>
-					<Value><![CDATA[11.31]]></Value>
-					<Value><![CDATA[11.32]]></Value>
-					<Value><![CDATA[11.32]]></Value>
-					<Value><![CDATA[11.33]]></Value>
+					<Value><![CDATA[319.855]]></Value>
+					<Value><![CDATA[323.69]]></Value>
+					<Value><![CDATA[331.732]]></Value>
+					<Value><![CDATA[340.943]]></Value>
+					<Value><![CDATA[350.993]]></Value>
+					<Value><![CDATA[361.561]]></Value>
+					<Value><![CDATA[372.573]]></Value>
+					<Value><![CDATA[384.043]]></Value>
+					<Value><![CDATA[395.918]]></Value>
+					<Value><![CDATA[408.142]]></Value>
+					<Value><![CDATA[424.661]]></Value>
 				</TableFunction>
 				<TableFunction AccessType="public" StaticFunction="false">
 					<Id>1693697518406</Id>
@@ -2959,6 +4674,480 @@ espesor de la capa de agua]]></Description>
 					<Value><![CDATA[5.4247]]></Value>
 					<Value><![CDATA[5.4426]]></Value>
 				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693974552794</Id>
+					<Name><![CDATA[FarmlandExpansionProjection]]></Name>
+					<X>510</X><Y>-630</Y>
+					<Label><X>-55</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2025.0]]></Argument>
+					<Argument><![CDATA[2035.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[3431561.47]]></Value>
+					<Value><![CDATA[6577191.47]]></Value>
+					<Value><![CDATA[6987872.06]]></Value>
+					<Value><![CDATA[6281744.42]]></Value>
+					<Value><![CDATA[3219504.14]]></Value>
+					<Value><![CDATA[233320.64]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1693982824093</Id>
+					<Name><![CDATA[BAULandDefToOtherProj]]></Name>
+					<X>670</X><Y>-630</Y>
+					<Label><X>-40</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2021.0]]></Argument>
+					<Argument><![CDATA[2025.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[1019190.0]]></Value>
+					<Value><![CDATA[1361850.0]]></Value>
+					<Value><![CDATA[1299810.0]]></Value>
+					<Value><![CDATA[1055500.0]]></Value>
+					<Value><![CDATA[640499.0]]></Value>
+					<Value><![CDATA[306423.0]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694028512475</Id>
+					<Name><![CDATA[FractionPerYoungForest]]></Name>
+					<X>910</X><Y>-540</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2023.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[0.182]]></Value>
+					<Value><![CDATA[0.25]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694028586293</Id>
+					<Name><![CDATA[FractionPerMedForest]]></Name>
+					<X>910</X><Y>-570</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2023.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[0.118]]></Value>
+					<Value><![CDATA[1.16]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694028626763</Id>
+					<Name><![CDATA[FractionPerMatureForest]]></Name>
+					<X>910</X><Y>-600</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2023.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[0.7]]></Value>
+					<Value><![CDATA[0.59]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694293284659</Id>
+					<Name><![CDATA[TbIndCBioYou]]></Name>
+					<X>470</X><Y>-600</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[4.7470485E7]]></Value>
+					<Value><![CDATA[1.17081492E8]]></Value>
+					<Value><![CDATA[1.93628403E8]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694293546283</Id>
+					<Name><![CDATA[TbCarbonDensBioYou]]></Name>
+					<X>590</X><Y>-600</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[34.29]]></Value>
+					<Value><![CDATA[45.41]]></Value>
+					<Value><![CDATA[53.58]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694295739182</Id>
+					<Name><![CDATA[TbIndCBioMed]]></Name>
+					<X>470</X><Y>-580</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[3.9143189E7]]></Value>
+					<Value><![CDATA[1.14555439E8]]></Value>
+					<Value><![CDATA[1.96805856E8]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694296133512</Id>
+					<Name><![CDATA[TbIndCBioMat]]></Name>
+					<X>470</X><Y>-560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[5.19642022E8]]></Value>
+					<Value><![CDATA[8.0E8]]></Value>
+					<Value><![CDATA[9.9E8]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694296151291</Id>
+					<Name><![CDATA[TbIndCBioFar]]></Name>
+					<X>470</X><Y>-540</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2027.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[1.1368385E8]]></Value>
+					<Value><![CDATA[1.81094562E8]]></Value>
+					<Value><![CDATA[2.13109501E8]]></Value>
+					<Value><![CDATA[2.50178482E8]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694296869850</Id>
+					<Name><![CDATA[TbCarbonDensBioMed]]></Name>
+					<X>590</X><Y>-580</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[48.33]]></Value>
+					<Value><![CDATA[68.75]]></Value>
+					<Value><![CDATA[83.08]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694296918533</Id>
+					<Name><![CDATA[TbCarbonDensBioMat]]></Name>
+					<X>590</X><Y>-560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2025.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[89.31]]></Value>
+					<Value><![CDATA[92.93]]></Value>
+					<Value><![CDATA[109.21]]></Value>
+					<Value><![CDATA[116.97]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694296949088</Id>
+					<Name><![CDATA[TbCarbonDensBioFar]]></Name>
+					<X>590</X><Y>-540</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[13.7]]></Value>
+					<Value><![CDATA[14.56]]></Value>
+					<Value><![CDATA[15.15]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694298148286</Id>
+					<Name><![CDATA[DesiredLandWoodYou]]></Name>
+					<X>750</X><Y>-600</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[1354280.0]]></Value>
+					<Value><![CDATA[1837054.0]]></Value>
+					<Value><![CDATA[2192786.0]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694298173716</Id>
+					<Name><![CDATA[DesiredLandWoodMed]]></Name>
+					<X>750</X><Y>-570</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>LINEAR</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[792356.0]]></Value>
+					<Value><![CDATA[1187336.0]]></Value>
+					<Value><![CDATA[1437293.0]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1694298191857</Id>
+					<Name><![CDATA[DesiredLandWoodMat]]></Name>
+					<X>750</X><Y>-540</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[5756576.0]]></Value>
+					<Value><![CDATA[5747049.0]]></Value>
+					<Value><![CDATA[5170303.0]]></Value>
+				</TableFunction>
 			</TableFunctions>
 			<AgentLinks>
 				<AgentLink>
@@ -3064,6 +5253,73 @@ espesor de la capa de agua]]></Description>
 					<FillAreaUnderLine>false</FillAreaUnderLine>
 					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
     			</TimePlot>
+    			<TimePlot>
+					<Id>1693983216216</Id>
+					<Name><![CDATA[plot1]]></Name>
+					<X>460</X><Y>650</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>false</OccurrenceAtTime>
+					<OccurrenceDate>1693987200000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>180</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[8]]></VerScaleToExpression>
+					<VerScaleType>FIXED</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Deforestación]]></Title>
+					<Id>1693983218604</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-3308225</Color>
+					<Expression2><![CDATA[LandDecreaseDeforest.sum()/1000000]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[80]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
 			</Presentation>
 
 				</Level>
@@ -3129,6 +5385,38 @@ espesor de la capa de agua]]></Description>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 			<VmArgs><![CDATA[]]></VmArgs>
 			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1693985248302</Id>
+					<Name><![CDATA[defValue]]></Name>
+					<X>-100</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1694526963781</Id>
+					<Name><![CDATA[affValue]]></Name>
+					<X>-100</X><Y>90</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+			</Variables>
 
 			<Presentation>
 				<Text>
@@ -3152,14 +5440,143 @@ espesor de la capa de agua]]></Description>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1693984073833</Id>
+					<Name><![CDATA[def_slider]]></Name>
+					<X>103</X><Y>120</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[-10]]></MinValue>
+						<MaxValue><![CDATA[1]]></MaxValue>
+						<LinkTo>true</LinkTo>
+						<Link>defValue</Link>
+					</ExtendedProperties>
+				</Control>
+				<Text>
+					<Id>1694398683351</Id>
+					<Name><![CDATA[LabelDef]]></Name>
+					<X>100</X><Y>90</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Deforestación]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>15</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1694398972169</Id>
+					<Name><![CDATA[textValueDef]]></Name>
+					<X>153</X><Y>150</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[value]]></Text>
+					<TextCode><![CDATA[def_slider.getValue()<=0?(def_slider.getValue()<-1?(def_slider.getValue()<-4?"Altamente reducida":"Reducida"):"Status Quo"):"Incrementada"]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1694526900464</Id>
+					<Name><![CDATA[aff_slider]]></Name>
+					<X>102</X><Y>229</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[100]]></MaxValue>
+						<LinkTo>true</LinkTo>
+						<Link>affValue</Link>
+					</ExtendedProperties>
+				</Control>
+				<Text>
+					<Id>1694526900511</Id>
+					<Name><![CDATA[LabelAfff1]]></Name>
+					<X>99</X><Y>199</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Forestación]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>15</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1694526900538</Id>
+					<Name><![CDATA[textValueDef1]]></Name>
+					<X>152</X><Y>259</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[value]]></Text>
+					<TextCode><![CDATA[900*aff_slider.getValue()/100+" Mha"]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
 			</Presentation>
 
 			<Parameters>			
 				<Parameter>
 					<ParameterName><![CDATA[Sensitivity2xCO2]]></ParameterName>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[CO2RadForceCoeff]]></ParameterName>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[PreindustrialCO2]]></ParameterName>
@@ -3210,13 +5627,7 @@ espesor de la capa de agua]]></Description>
 					<ParameterName><![CDATA[MeanTempChange1750to1850]]></ParameterName>
 				</Parameter>
 				<Parameter>
-					<ParameterName><![CDATA[NaturalN2OEmissions]]></ParameterName>
-				</Parameter>
-				<Parameter>
 					<ParameterName><![CDATA[CO2c1]]></ParameterName>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[constSumN2O]]></ParameterName>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[CH4a3]]></ParameterName>
@@ -3242,6 +5653,30 @@ espesor de la capa de agua]]></Description>
 				<Parameter>
 					<ParameterName><![CDATA[MeanDepthOfAdjacentLayers]]></ParameterName>
 				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[AgriLandExpansionFromForests]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[RelativeDeforestation]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[defValue]]></Code>
+					</ParameterValue>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[YearsToSecureLandForAff]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[MaxAvailableLandForAfforestation]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[PercentLandAvailableAff]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[affValue]]></Code>
+					</ParameterValue>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[YearsToPlantLandCommittedToAff]]></ParameterName>
+				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -3258,7 +5693,7 @@ espesor de la capa de agua]]></Description>
 				<FinalDate><![CDATA[4102444800000]]></FinalDate>	
 				<FinalTime><![CDATA[76.38630136986302]]></FinalTime>	
 			</ModelTimeProperties>
-			<BypassInitialScreen>true</BypassInitialScreen>
+			<BypassInitialScreen>false</BypassInitialScreen>
 		</SimulationExperiment>	
 	</Experiments>
     <RequiredLibraryReference>
