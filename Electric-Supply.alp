@@ -305,7 +305,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[xidz((TotalElecProduction - RecentElecCarrierDemand), RecentElecCarrierDemand, 4) / 4]]></Formula>
+						<Formula><![CDATA[TbExElecCarrDemGR.get(2023+time(YEAR))]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color/>
 					</Properties>
@@ -515,6 +515,8 @@
 									<ClassName><![CDATA[ElecPaths]]></ClassName>
 								</Coordinate>
 								<Expression><![CDATA[((FractionInvestedElecEnergySource[ElecPaths] * ElecCarrierCapRetirements)
++ (DesiredElecCap[ElecPaths] * ExElecCarrierDemandGrowthRate)
++ ((DesiredElecCap[ElecPaths] - ElecEnergySupplyCap[ElecPaths])/8))<0?0:((FractionInvestedElecEnergySource[ElecPaths] * ElecCarrierCapRetirements)
 + (DesiredElecCap[ElecPaths] * ExElecCarrierDemandGrowthRate)
 + ((DesiredElecCap[ElecPaths] - ElecEnergySupplyCap[ElecPaths])/8))]]></Expression>
 							</CustomExpression>
@@ -922,7 +924,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[Math.log(TotalElecProduction / smooth(TotalElecProduction, 4))/4]]></Formula>
+						<Formula><![CDATA[Math.abs(Math.log(TotalElecProduction / (smooth(TotalElecProduction, 4)))/4)]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color/>
 					</Properties>
@@ -937,7 +939,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[smooth(TotalElecProduction, 4, (TotalElecProduction * Math.exp(-ElecCarrierDemandGrowthRate*4)))]]></Formula>
+						<Formula><![CDATA[(TotalElecProduction * Math.exp(-ElecCarrierDemandGrowthRate*4))]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color/>
 					</Properties>
@@ -1165,7 +1167,7 @@
 									<PackageName><![CDATA[electric_supply]]></PackageName>
 									<ClassName><![CDATA[ElecPaths]]></ClassName>
 								</Coordinate>
-								<Expression><![CDATA[MgnUnitCostForElec[ElecPaths] / (RefElecCost)]]></Expression>
+								<Expression><![CDATA[(MgnUnitCostForElec[ElecPaths] + SoftCostsByType[ElecPaths]) / (RefElecCost)]]></Expression>
 							</CustomExpression>
 						</Array>
 					</Properties>
@@ -1365,7 +1367,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[25]]></Formula>
+						<Formula><![CDATA[25.4969]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color/>
 					</Properties>
@@ -1878,6 +1880,22 @@ FractionOfElecSrcAdjForCapital[OthRenew]))]]></Expression>
 								</Coordinate>
 								<Expression><![CDATA[0]]></Expression>
 							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[electric_supply]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[Wind]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[4]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[electric_supply]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[Solar]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[4]]></Expression>
+							</CustomExpression>
 						</Array>
 					</Properties>
 
@@ -1905,6 +1923,22 @@ FractionOfElecSrcAdjForCapital[OthRenew]))]]></Expression>
 									<ClassName><![CDATA[ElecPaths]]></ClassName>
 								</Coordinate>
 								<Expression><![CDATA[1]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[electric_supply]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[Wind]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[0.5]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[electric_supply]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[Solar]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[0.5]]></Expression>
 							</CustomExpression>
 						</Array>
 					</Properties>
@@ -1987,7 +2021,7 @@ FractionOfElecSrcAdjForCapital[OthRenew]))]]></Expression>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[0]]></Formula>
+						<Formula><![CDATA[10]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color/>
 					</Properties>
@@ -2226,6 +2260,66 @@ FractionOfElecSrcAdjForCapital[OthRenew]))]]></Expression>
 					</Properties>
 
 				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1695437085347</Id>
+					<Name><![CDATA[SoftCostsByType]]></Name>
+					<X>755</X><Y>427</Y>
+					<Label><X>-10</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[electric_supply]]></PackageName>
+								<ClassName><![CDATA[ElecPaths]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[electric_supply]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+								</Coordinate>
+								<Expression><![CDATA[0]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[electric_supply]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[Wind]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[SCWind.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[electric_supply]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[Solar]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[SCSolar.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[electric_supply]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[GeoT]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[SCGeo.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[electric_supply]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[OthRenew]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[SCOtRenew.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
 				<Variable Class="StockVariable">
 					<Id>1695225956641</Id>
 					<Name><![CDATA[ElecCapacityDev]]></Name>
@@ -2300,7 +2394,7 @@ DesiredElecPathCapUnderConstr.get(OthRenew)}]]></InitialValue>
 					<EquationStyle>classic</EquationStyle>
 					<Width>140</Width>
 					<Height>40</Height>
-						<InitialValue><![CDATA[{19.93, 5.95, 7.86, .58, 9.05, 9.63, .01746, .0004, .1639, .0054}]]></InitialValue>
+						<InitialValue><![CDATA[{41.19, 6.38, 27.904, 3.828, 11.83, 16.95, 8.82, 6.4925, .42, .0007}]]></InitialValue>
 						<Color/>
 						<Array>
 							<Dimension>
@@ -2922,51 +3016,6 @@ DesiredElecPathCapUnderConstr.get(OthRenew)}]]></InitialValue>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1695222915557" TargetId="1695223243810" Polarity="null">
-					<Height>-9.145</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>-100</X><Y>-100</Y></Direction>
-					<Id>1695223392456</Id>
-					<Name><![CDATA[ElecCarrierDemandGrowthRate - RecentElecCarrierDemand]]></Name>
-					<X>900</X><Y>400</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1695220722735" TargetId="1695139416483" Polarity="null">
-					<Height>116.883</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>-870</X><Y>-100</Y></Direction>
-					<Id>1695224631883</Id>
-					<Name><![CDATA[TotalElecProduction - ExElecCarrierDemandGrowthRate]]></Name>
-					<X>910</X><Y>340</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1695223243810" TargetId="1695139416483" Polarity="null">
-					<Height>91.191</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>-760</X><Y>-60</Y></Direction>
-					<Id>1695224634377</Id>
-					<Name><![CDATA[RecentElecCarrierDemand - ExElecCarrierDemandGrowthRate]]></Name>
-					<X>800</X><Y>300</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
 				<Link SourceId="1695223243810" TargetId="1695224664419" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
@@ -3163,7 +3212,7 @@ DesiredElecPathCapUnderConstr.get(OthRenew)}]]></InitialValue>
 					<Delay>false</Delay>
 				</Link>
 				<Link SourceId="1695324170771" TargetId="1695320957174" Polarity="null">
-					<Height>-19.046</Height>
+					<Height>0.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
 					<Direction><X>-150</X><Y>-50</Y></Direction>
 					<Id>1695324871186</Id>
@@ -3544,6 +3593,36 @@ DesiredElecPathCapUnderConstr.get(OthRenew)}]]></InitialValue>
 					<Id>1695364149041</Id>
 					<Name><![CDATA[RenewSubs - AdjToElecCapitalCosts]]></Name>
 					<X>650</X><Y>510</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695437085347" TargetId="1695320957174" Polarity="null">
+					<Height>4.092</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-85</X><Y>13</Y></Direction>
+					<Id>1695437818806</Id>
+					<Name><![CDATA[SoftCostsByType - RelativeCost]]></Name>
+					<X>755</X><Y>427</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695222915557" TargetId="1695223243810" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-100</X><Y>-100</Y></Direction>
+					<Id>1695443265695</Id>
+					<Name><![CDATA[ElecCarrierDemandGrowthRate - RecentElecCarrierDemand]]></Name>
+					<X>900</X><Y>400</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5492,6 +5571,175 @@ DesiredElecPathCapUnderConstr.get(OthRenew)}]]></InitialValue>
 					<Value><![CDATA[47.32]]></Value>
 					<Value><![CDATA[45.26]]></Value>
 					<Value><![CDATA[42.53]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1695437281051</Id>
+					<Name><![CDATA[SCWind]]></Name>
+					<X>1340</X><Y>-88</Y>
+					<Label><X>12</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2023.0]]></Argument>
+					<Argument><![CDATA[2035.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[32.88]]></Value>
+					<Value><![CDATA[17.898]]></Value>
+					<Value><![CDATA[11.99]]></Value>
+					<Value><![CDATA[8.49]]></Value>
+					<Value><![CDATA[5.9496]]></Value>
+					<Value><![CDATA[4.75]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1695437281112</Id>
+					<Name><![CDATA[SCSolar]]></Name>
+					<X>1340</X><Y>-68</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2023.0]]></Argument>
+					<Argument><![CDATA[2035.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[12.1988]]></Value>
+					<Value><![CDATA[8.184]]></Value>
+					<Value><![CDATA[4.572]]></Value>
+					<Value><![CDATA[2.94]]></Value>
+					<Value><![CDATA[2.011]]></Value>
+					<Value><![CDATA[1.615]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1695437281145</Id>
+					<Name><![CDATA[SCGeo]]></Name>
+					<X>1340</X><Y>-48</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2023.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[57.643]]></Value>
+					<Value><![CDATA[50.296]]></Value>
+					<Value><![CDATA[40.078]]></Value>
+					<Value><![CDATA[29.29]]></Value>
+					<Value><![CDATA[19.977]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1695437281177</Id>
+					<Name><![CDATA[SCOtRenew]]></Name>
+					<X>1340</X><Y>-28</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2023.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[89.819]]></Value>
+					<Value><![CDATA[89.644]]></Value>
+					<Value><![CDATA[89.572]]></Value>
+					<Value><![CDATA[89.4853]]></Value>
+					<Value><![CDATA[89.355]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1695444001835</Id>
+					<Name><![CDATA[TbExElecCarrDemGR]]></Name>
+					<X>21</X><Y>315</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2023.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2075.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[0.0285]]></Value>
+					<Value><![CDATA[0.0171]]></Value>
+					<Value><![CDATA[0.019]]></Value>
+					<Value><![CDATA[0.013]]></Value>
+					<Value><![CDATA[0.0088]]></Value>
 				</TableFunction>
 			</TableFunctions>
 			<AgentLinks>
