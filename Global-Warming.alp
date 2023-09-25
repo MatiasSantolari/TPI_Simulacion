@@ -4316,6 +4316,185 @@ FractionOfElecSrcAdjForCapital[OthRenew]))]]></Expression>
 					</Properties>
 
 				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1695677150235</Id>
+					<Name><![CDATA[globalCO2EnergyAndIndustryEmission]]></Name>
+					<X>-880</X><Y>-100</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[GHGTotalEmissionsFromEnergyUse]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1695677752852</Id>
+					<Name><![CDATA[primaryElecEnergyByElecPath]]></Name>
+					<X>-640</X><Y>-380</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[ElecPaths]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+								</Coordinate>
+								<Expression><![CDATA[ElecProduction[ElecPaths]/AvgEfficiencyOfElecSupply[ElecPaths]]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1695678275022</Id>
+					<Name><![CDATA[GHGIntensityOfElecEnergy]]></Name>
+					<X>-740</X><Y>-300</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[PrimaryEnergySource]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[PrimaryEnergySource]]></ClassName>
+									<ItemName><![CDATA[PrCoal]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[90.98]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[PrimaryEnergySource]]></ClassName>
+									<ItemName><![CDATA[PrOil]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[66.346]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[PrimaryEnergySource]]></ClassName>
+									<ItemName><![CDATA[PrGas]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[50.234]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[PrimaryEnergySource]]></ClassName>
+									<ItemName><![CDATA[PrBio]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[tbGHGIntensityOfBioEnergy.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1695678701333</Id>
+					<Name><![CDATA[GHGsReleasedFromElecEnergyProd]]></Name>
+					<X>-480</X><Y>-300</Y>
+					<Label><X>-110</X><Y>30</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[ElecPaths]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[ECoal]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[((primaryElecEnergyByElecPath[ECoal]*GHGIntensityOfElecEnergy[PrCoal])*TJperEJ)/TonsCO2perGtonCO2]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[EOil]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[((primaryElecEnergyByElecPath[EOil]*GHGIntensityOfElecEnergy[PrOil])*TJperEJ)/TonsCO2perGtonCO2]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[EGas]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[((primaryElecEnergyByElecPath[EGas]*GHGIntensityOfElecEnergy[PrGas])*TJperEJ)/TonsCO2perGtonCO2]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[EBio]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[((primaryElecEnergyByElecPath[EBio]*GHGIntensityOfElecEnergy[PrBio])*TJperEJ)/TonsCO2perGtonCO2]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1695679243856</Id>
+					<Name><![CDATA[GHGTotalEmissionsFromEnergyUse]]></Name>
+					<X>-600</X><Y>-120</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[GHGsReleasedFromElecEnergyProd.sum()+tbGHGEmissionFromNonElecEnergyProduction.get(2023+time(YEAR))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1695679577683</Id>
+					<Name><![CDATA[globalCEnergyAndIndustryEmission]]></Name>
+					<X>-1160</X><Y>-220</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[(globalCO2EnergyAndIndustryEmission-tbIndirectCO2InCH4.get(2023+time(YEAR)))/CO2PerC]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
 				<Variable Class="StockVariable">
 					<Id>1693798613995</Id>
 					<Name><![CDATA[HeatInAtmAndUpperOcean]]></Name>
@@ -5847,6 +6026,78 @@ espesor de la capa de agua]]></Description>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695006946222</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1695677216449</Id>
+					<Name><![CDATA[CO2PerC]]></Name>
+					<X>-940</X><Y>-200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[3.66]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1695677216447</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1695678497274</Id>
+					<Name><![CDATA[TJperEJ]]></Name>
+					<X>-700</X><Y>-220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1000000]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1695678497272</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1695678613069</Id>
+					<Name><![CDATA[TonsCO2perGtonCO2]]></Name>
+					<X>-700</X><Y>-180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1000000000]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1695678613067</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -9134,6 +9385,156 @@ espesor de la capa de agua]]></Description>
 					<Id>1695575909350</Id>
 					<Name><![CDATA[ElecCarrierDemandGrowthRate - RecentElecCarrierDemand]]></Name>
 					<X>-430</X><Y>-730</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695575909612" TargetId="1695677752852" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-180</X><Y>510</Y></Direction>
+					<Id>1695677974024</Id>
+					<Name><![CDATA[ElecProduction - primaryElecEnergyByElecPath]]></Name>
+					<X>-460</X><Y>-890</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695575910279" TargetId="1695677752852" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>280</X><Y>120</Y></Direction>
+					<Id>1695677989063</Id>
+					<Name><![CDATA[AvgEfficiencyOfElecSupply - primaryElecEnergyByElecPath]]></Name>
+					<X>-920</X><Y>-500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695678613069" TargetId="1695678701333" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>220</X><Y>-120</Y></Direction>
+					<Id>1695678973040</Id>
+					<Name><![CDATA[TonsCO2perGtonCO2 - GHGsReleasedFromElecEnergyProd]]></Name>
+					<X>-700</X><Y>-180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695677752852" TargetId="1695678701333" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>160</X><Y>80</Y></Direction>
+					<Id>1695678975645</Id>
+					<Name><![CDATA[primaryElecEnergyByElecPath - GHGsReleasedFromElecEnergyProd]]></Name>
+					<X>-640</X><Y>-380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695678275022" TargetId="1695678701333" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>260</X><Y>0</Y></Direction>
+					<Id>1695678978254</Id>
+					<Name><![CDATA[GHGIntensityOfElecEnergy - GHGsReleasedFromElecEnergyProd]]></Name>
+					<X>-740</X><Y>-300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695678497274" TargetId="1695678701333" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>220</X><Y>-80</Y></Direction>
+					<Id>1695678980571</Id>
+					<Name><![CDATA[TJperEJ - GHGsReleasedFromElecEnergyProd]]></Name>
+					<X>-700</X><Y>-220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695678701333" TargetId="1695679243856" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-120</X><Y>180</Y></Direction>
+					<Id>1695679446262</Id>
+					<Name><![CDATA[GHGsReleasedFromElecEnergyProd - GHGTotalEmissionsFromEnergyUse]]></Name>
+					<X>-480</X><Y>-300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695679243856" TargetId="1695677150235" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-280</X><Y>20</Y></Direction>
+					<Id>1695679553960</Id>
+					<Name><![CDATA[GHGTotalEmissionsFromEnergyUse - globalCO2EnergyAndIndustryEmission]]></Name>
+					<X>-600</X><Y>-120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695677216449" TargetId="1695679577683" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-220</X><Y>-20</Y></Direction>
+					<Id>1695679691859</Id>
+					<Name><![CDATA[CO2PerC - globalCEnergyAndIndustryEmission]]></Name>
+					<X>-940</X><Y>-200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695677150235" TargetId="1695679577683" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-280</X><Y>-120</Y></Direction>
+					<Id>1695679694119</Id>
+					<Name><![CDATA[globalCO2EnergyAndIndustryEmission - globalCEnergyAndIndustryEmission]]></Name>
+					<X>-880</X><Y>-100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12966,6 +13367,93 @@ if(time(YEAR) > 15) {
 					<Value><![CDATA[0.01293]]></Value>
 					<Value><![CDATA[0.00867]]></Value>
 				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1695676978632</Id>
+					<Name><![CDATA[tbIndirectCO2InCH4]]></Name>
+					<X>-1480</X><Y>-360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[0.38]]></Value>
+					<Value><![CDATA[0.502]]></Value>
+					<Value><![CDATA[0.53]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1695677385379</Id>
+					<Name><![CDATA[tbGHGEmissionFromNonElecEnergyProduction]]></Name>
+					<X>-1480</X><Y>-340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[4.39]]></Value>
+					<Value><![CDATA[8.26]]></Value>
+					<Value><![CDATA[10.12]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1695678155499</Id>
+					<Name><![CDATA[tbGHGIntensityOfBioEnergy]]></Name>
+					<X>-1480</X><Y>-320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[53.86]]></Value>
+					<Value><![CDATA[59.59]]></Value>
+					<Value><![CDATA[49.21]]></Value>
+				</TableFunction>
 			</TableFunctions>
 			<AgentLinks>
 				<AgentLink>
@@ -13512,6 +14000,15 @@ if(time(YEAR) > 15) {
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[ppmCO2PerGtonC]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[CO2PerC]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[TJperEJ]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[TonsCO2perGtonCO2]]></ParameterName>
 				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
