@@ -5778,6 +5778,389 @@ DesiredElecPathCapUnderConstr.get(OthRenew)}]]></InitialValue>
 					<Z>0</Z>
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
+			<Presentation>
+    			<TimePlot>
+					<Id>1696399505401</Id>
+					<Name><![CDATA[Total_Elec_Production]]></Name>
+					<X>1288</X><Y>1300</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1696406400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>360</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>280</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Produccion de electricidad]]></Title>
+					<Id>1696399505398</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-256</Color>
+					<Expression2><![CDATA[TotalElecProduction]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+    			<BarChart>
+					<Id>1696399505527</Id>
+					<Name><![CDATA[chart]]></Name>
+					<X>1268</X><Y>1520</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1696406400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>420</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>340</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>1696399505515</Id>
+					<Expression><![CDATA[ElecProduction.get(1)]]></Expression>
+					<Color>-2448096</Color>
+						<Title><![CDATA[Prod Elec Coal]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1696399505516</Id>
+					<Expression><![CDATA[ElecProduction.get(2)]]></Expression>
+					<Color>-9728477</Color>
+						<Title><![CDATA[Prod Elec Oil]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1696399505517</Id>
+					<Expression><![CDATA[ElecProduction.get(3)]]></Expression>
+					<Color>-16728065</Color>
+						<Title><![CDATA[Prod Elec Gas]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1696399505518</Id>
+					<Expression><![CDATA[ElecProduction.get(4)]]></Expression>
+					<Color>-4565549</Color>
+						<Title><![CDATA[Prod Elec Bio]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1696399505519</Id>
+					<Expression><![CDATA[ElecProduction.get(5)]]></Expression>
+					<Color>-2354116</Color>
+						<Title><![CDATA[Prod Elec Nuclear]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1696399505520</Id>
+					<Expression><![CDATA[ElecProduction.get(6)]]></Expression>
+					<Color>-10496</Color>
+						<Title><![CDATA[Prod Elec Hydro]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1696399505521</Id>
+					<Expression><![CDATA[ElecProduction.get(7)]]></Expression>
+					<Color>-6632142</Color>
+						<Title><![CDATA[Prod Elec Wind]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1696399505522</Id>
+					<Expression><![CDATA[ElecProduction.get(8)]]></Expression>
+					<Color>-14774017</Color>
+						<Title><![CDATA[Prod Elec Solar]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1696399505523</Id>
+					<Expression><![CDATA[ElecProduction.get(9)]]></Expression>
+					<Color>-3137392</Color>
+						<Title><![CDATA[Prod Elec GeoT]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1696399505524</Id>
+					<Expression><![CDATA[ElecProduction.get(0)]]></Expression>
+					<Color>-32944</Color>
+						<Title><![CDATA[Prod Elec Otros]]></Title>
+					</DataItem>
+					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
+					<ScaleToExpression><![CDATA[1]]></ScaleToExpression>
+					<ScaleType>AUTO</ScaleType>
+					<Bars>
+						<Direction>RIGHT</Direction>
+						<RelativeWidth>0.8</RelativeWidth>
+					</Bars>
+    			</BarChart>
+    			<TimePlot>
+					<Id>1696399505548</Id>
+					<Name><![CDATA[Market_Price_Of_Elec]]></Name>
+					<X>1808</X><Y>1320</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1696406400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>180</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Precion de mercado para la electricidad]]></Title>
+					<Id>1696399505545</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-16744448</Color>
+					<Expression2><![CDATA[MarketPriceOfElec]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+    			<TimePlot>
+					<Id>1696399505558</Id>
+					<Name><![CDATA[Globlal_Energy_And_Industry_Emmision]]></Name>
+					<X>2108</X><Y>1320</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1696406400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>180</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Emisiones globales de industra y energia ]]></Title>
+					<Id>1696399505555</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-8355840</Color>
+					<Expression2><![CDATA[globalCEnergyAndIndustryEmission]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+    			<TimePlot>
+					<Id>1696399505568</Id>
+					<Name><![CDATA[Farmland_expansion]]></Name>
+					<X>1968</X><Y>1540</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1696406400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>180</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Expansion de tierras de cultivo]]></Title>
+					<Id>1696399505565</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-2987746</Color>
+					<Expression2><![CDATA[FarmlandExpansion]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+			</Presentation>
 
 				</Level>
 			</Presentation>
