@@ -207,6 +207,43 @@
 				<Value>4</Value>
 			</Element>
 		</Dimension>
+		<!--   =========   Dimension   ========  -->
+		<Dimension>
+			<Id>1696867827491</Id>
+			<Name><![CDATA[Carrier]]></Name>
+			<Type>enumeration</Type>
+			<Range><![CDATA[]]></Range>
+			<Element>
+				<Id>1696867827492</Id>
+				<Name><![CDATA[Coal]]></Name>
+				<Value>1</Value>
+			</Element>
+			<Element>
+				<Id>1696867827493</Id>
+				<Name><![CDATA[Oil]]></Name>
+				<Value>2</Value>
+			</Element>
+			<Element>
+				<Id>1696867827494</Id>
+				<Name><![CDATA[Gas]]></Name>
+				<Value>3</Value>
+			</Element>
+			<Element>
+				<Id>1696867827495</Id>
+				<Name><![CDATA[Bio]]></Name>
+				<Value>4</Value>
+			</Element>
+			<Element>
+				<Id>1696867827496</Id>
+				<Name><![CDATA[Electric]]></Name>
+				<Value>5</Value>
+			</Element>
+			<Element>
+				<Id>1696867827497</Id>
+				<Name><![CDATA[Hydrogen]]></Name>
+				<Value>6</Value>
+			</Element>
+		</Dimension>
 	</Dimensions>
 	<ActiveObjectClasses>
 		<!--   =========   Active Object Class   ========  -->
@@ -1111,7 +1148,7 @@ viewGraph.navigateTo();]]></StartupCode>
 									<ClassName><![CDATA[LandUse]]></ClassName>
 									<ItemName><![CDATA[NonAfYoungF]]></ItemName>
 								</Coordinate>
-								<Expression><![CDATA[IndicatedCBioenergy[NonAfYoungF] / (CarbonDensityBiomass[NonAfYoungF]*BiomassRemovedwHarvesting[NonAfYoungF])]]></Expression>
+								<Expression><![CDATA[IndicatedCFromBioenergy[NonAfYoungF] / (CarbonDensityBiomass[NonAfYoungF]*BiomassRemovedwHarvesting[NonAfYoungF])]]></Expression>
 							</CustomExpression>
 							<CustomExpression>
 								<Coordinate>
@@ -1119,7 +1156,7 @@ viewGraph.navigateTo();]]></StartupCode>
 									<ClassName><![CDATA[LandUse]]></ClassName>
 									<ItemName><![CDATA[NonAfMedF]]></ItemName>
 								</Coordinate>
-								<Expression><![CDATA[IndicatedCBioenergy[NonAfMedF] / (CarbonDensityBiomass[NonAfMedF]*BiomassRemovedwHarvesting[NonAfMedF])]]></Expression>
+								<Expression><![CDATA[IndicatedCFromBioenergy[NonAfMedF] / (CarbonDensityBiomass[NonAfMedF]*BiomassRemovedwHarvesting[NonAfMedF])]]></Expression>
 							</CustomExpression>
 							<CustomExpression>
 								<Coordinate>
@@ -1127,7 +1164,7 @@ viewGraph.navigateTo();]]></StartupCode>
 									<ClassName><![CDATA[LandUse]]></ClassName>
 									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
 								</Coordinate>
-								<Expression><![CDATA[IndicatedCBioenergy[NonAfMatureF] / (CarbonDensityBiomass[NonAfMatureF]*BiomassRemovedwHarvesting[NonAfMatureF])]]></Expression>
+								<Expression><![CDATA[IndicatedCFromBioenergy[NonAfMatureF] / (CarbonDensityBiomass[NonAfMatureF]*BiomassRemovedwHarvesting[NonAfMatureF])]]></Expression>
 							</CustomExpression>
 							<CustomExpression>
 								<Coordinate>
@@ -1164,14 +1201,6 @@ viewGraph.navigateTo();]]></StartupCode>
 									<ClassName><![CDATA[LandUse]]></ClassName>
 								</Coordinate>
 								<Expression><![CDATA[IndicatedLandHarvestedBionergy[LandUse]]]></Expression>
-							</CustomExpression>
-							<CustomExpression>
-								<Coordinate>
-									<PackageName><![CDATA[global_warming]]></PackageName>
-									<ClassName><![CDATA[LandUse]]></ClassName>
-									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
-								</Coordinate>
-								<Expression><![CDATA[IndicatedLandHarvestedBionergy[NonAfMatureF]*(100+RelativeDeforestation)/100]]></Expression>
 							</CustomExpression>
 						</Array>
 					</Properties>
@@ -3313,6 +3342,14 @@ viewGraph.navigateTo();]]></StartupCode>
 								</Coordinate>
 								<Expression><![CDATA[subsOrTaxSrc[OthRenew]>0?10:0]]></Expression>
 							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[Hydro]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[subsOrTaxSrc[Hydro]>0?5:0]]></Expression>
+							</CustomExpression>
 						</Array>
 					</Properties>
 
@@ -3882,6 +3919,38 @@ FractionOfElecSrcAdjForCapital[OthRenew]))]]></Expression>
 									<ClassName><![CDATA[ElecPaths]]></ClassName>
 								</Coordinate>
 								<Expression><![CDATA[subsOrTaxSrc[ElecPaths]]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[Hydro]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[subsOrTaxSrc[Hydro]*100]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[Wind]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[subsOrTaxSrc[Wind]*100]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[Solar]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[subsOrTaxSrc[Solar]*100]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[ElecPaths]]></ClassName>
+									<ItemName><![CDATA[GeoT]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[subsOrTaxSrc[GeoT]*100]]></Expression>
 							</CustomExpression>
 						</Array>
 					</Properties>
@@ -4872,7 +4941,7 @@ UnitRevenueToVarCostRatioForElec[ElecPaths]
 									<ClassName><![CDATA[PrimaryFuels]]></ClassName>
 									<ItemName><![CDATA[PCoal]]></ItemName>
 								</Coordinate>
-								<Expression><![CDATA[tbPriNonElecEnergyCoal.get(2023+time(YEAR))*(RelativeReduceForFuel)]]></Expression>
+								<Expression><![CDATA[tbPriNonElecEnergyCoal.get(2023+time(YEAR))*RelativeReduceTaxCarbon[PCoal]*RelativeChangeForSubs[PCoal]]]></Expression>
 							</CustomExpression>
 							<CustomExpression>
 								<Coordinate>
@@ -4880,7 +4949,7 @@ UnitRevenueToVarCostRatioForElec[ElecPaths]
 									<ClassName><![CDATA[PrimaryFuels]]></ClassName>
 									<ItemName><![CDATA[POil]]></ItemName>
 								</Coordinate>
-								<Expression><![CDATA[tbPriNonElecEnergyOil.get(2023+time(YEAR))*((RelativeReduceForFuel))]]></Expression>
+								<Expression><![CDATA[tbPriNonElecEnergyOil.get(2023+time(YEAR))*RelativeReduceTaxCarbon[POil]*RelativeChangeForSubs[POil]]]></Expression>
 							</CustomExpression>
 							<CustomExpression>
 								<Coordinate>
@@ -4888,7 +4957,7 @@ UnitRevenueToVarCostRatioForElec[ElecPaths]
 									<ClassName><![CDATA[PrimaryFuels]]></ClassName>
 									<ItemName><![CDATA[PGas]]></ItemName>
 								</Coordinate>
-								<Expression><![CDATA[tbPriNonElecEnergyGas.get(2023+time(YEAR))*((RelativeReduceForFuel))]]></Expression>
+								<Expression><![CDATA[tbPriNonElecEnergyGas.get(2023+time(YEAR))*RelativeReduceTaxCarbon[PGas]*RelativeChangeForSubs[PGas]]]></Expression>
 							</CustomExpression>
 							<CustomExpression>
 								<Coordinate>
@@ -4896,7 +4965,7 @@ UnitRevenueToVarCostRatioForElec[ElecPaths]
 									<ClassName><![CDATA[PrimaryFuels]]></ClassName>
 									<ItemName><![CDATA[PBio]]></ItemName>
 								</Coordinate>
-								<Expression><![CDATA[tbPriNonElecEnergyBio.get(2023+time(YEAR))*((RelativeReduceForFuel))]]></Expression>
+								<Expression><![CDATA[tbPriNonElecEnergyBio.get(2023+time(YEAR))*RelativeChangeForSubs[PBio] + tbRelativeForBio.get(inpCarbonTaxPerTonCO2)]]></Expression>
 							</CustomExpression>
 						</Array>
 					</Properties>
@@ -5002,17 +5071,302 @@ TJperEJ) / TonsCO2perGtonCO2)]]></Expression>
 
 				</Variable>
 				<Variable Class="AuxVariable">
-					<Id>1695797579699</Id>
-					<Name><![CDATA[RelativeReduceForFuel]]></Name>
-					<X>-1180</X><Y>-420</Y>
+					<Id>1696809677191</Id>
+					<Name><![CDATA[RelativeReduceTaxCarbon]]></Name>
+					<X>-1120</X><Y>-300</Y>
+					<Label><X>-45</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[PrimaryFuels]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[PrimaryFuels]]></ClassName>
+									<ItemName><![CDATA[PCoal]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[time(YEAR)<=45?(((tbReduceForCoal.get(inpCarbonTaxPerTonCO2)-1)/45)*time(YEAR)+1):tbReduceForCoal.get(inpCarbonTaxPerTonCO2)]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[PrimaryFuels]]></ClassName>
+									<ItemName><![CDATA[POil]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[time(YEAR)<=45?(((tbReduceForOil.get(inpCarbonTaxPerTonCO2)-1)/45)*time(YEAR)+1):tbReduceForOil.get(inpCarbonTaxPerTonCO2)]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[PrimaryFuels]]></ClassName>
+									<ItemName><![CDATA[PGas]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[time(YEAR)<=45?(((tbReduceForGas.get(inpCarbonTaxPerTonCO2)-1)/45)*time(YEAR)+1):tbReduceForGas.get(inpCarbonTaxPerTonCO2)]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1696867597404</Id>
+					<Name><![CDATA[CropIndicatedPrimaryEnergyDemandByCarrier]]></Name>
+					<X>1520</X><Y>-260</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[Carrier]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[Carrier]]></ClassName>
+									<ItemName><![CDATA[Bio]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[PrimaryNonelecEnergyByFuel[PBio] * 0.162]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[Carrier]]></ClassName>
+									<ItemName><![CDATA[Electric]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[primaryElecEnergyByElecPath[EBio]*0.05]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1696867923008</Id>
+					<Name><![CDATA[ForestIndicatedPrimaryEnergyDemandByCarrier]]></Name>
+					<X>1520</X><Y>-310</Y>
+					<Label><X>-55</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[Carrier]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[Carrier]]></ClassName>
+									<ItemName><![CDATA[Electric]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[primaryElecEnergyByElecPath[EBio] - CropIndicatedPrimaryEnergyDemandByCarrier[Electric] - 1.487]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[Carrier]]></ClassName>
+									<ItemName><![CDATA[Bio]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[PrimaryNonelecEnergyByFuel[PBio] - CropIndicatedPrimaryEnergyDemandByCarrier[Bio] - 15.52]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1696891697073</Id>
+					<Name><![CDATA[ForestIndicatedPrimaryEnergyDemand]]></Name>
+					<X>1470</X><Y>-370</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties External="false" Constant="false" Array="false">
-						<Formula><![CDATA[1 - (time(YEAR)>20&&time(YEAR)!=0?(0.6/(250 / CarbonTaxPerTonCO2)):(0.6/(250 / (CarbonTaxPerTonCO2*(time(YEAR)*3/100)))))]]></Formula>
+						<Formula><![CDATA[ForestIndicatedPrimaryEnergyDemandByCarrier.sum()]]></Formula>
 						<Value><![CDATA[0]]></Value>
 						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1696891820418</Id>
+					<Name><![CDATA[ForestIndicatedPrimaryEnergyDemandHarvested]]></Name>
+					<X>1440</X><Y>-410</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[ForestIndicatedPrimaryEnergyDemand - EstimatedForestEnergyFueledBioFromResidues.get(2023+time(YEAR))]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1696892220856</Id>
+					<Name><![CDATA[ForestBiomassProdNeededForIndicatedBioenergy]]></Name>
+					<X>1330</X><Y>-440</Y>
+					<Label><X>-115</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[ForestIndicatedPrimaryEnergyDemandHarvested * 27000000]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1696892887397</Id>
+					<Name><![CDATA[IndicatedCFromBioenergy]]></Name>
+					<X>1300</X><Y>-330</Y>
+					<Label><X>-45</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[LandUse]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfYoungF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[ForestBiomassProdNeededForIndicatedBioenergy * FractionOfMaxYoungForestCAvailable.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMedF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[ForestBiomassProdNeededForIndicatedBioenergy * FractionOfMaxMedForestCAvailable.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[NonAfMatureF]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[ForestBiomassProdNeededForIndicatedBioenergy * FractionOfMaxMatureForestCAvailable.get(2023+time(YEAR))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[LandUse]]></ClassName>
+									<ItemName><![CDATA[Farmland]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[CropBioProdNeededForIndicatedBioenergy]]></Expression>
+							</CustomExpression>
+						</Array>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1696896472781</Id>
+					<Name><![CDATA[CropIndicatedPrimaryEnergyDemand]]></Name>
+					<X>1450</X><Y>-230</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[CropIndicatedPrimaryEnergyDemandByCarrier.sum()]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1696896605022</Id>
+					<Name><![CDATA[CropBioProdNeededForIndicatedBioenergy]]></Name>
+					<X>1330</X><Y>-150</Y>
+					<Label><X>0</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="false">
+						<Formula><![CDATA[CropIndicatedPrimaryEnergyDemand * 20000000]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+					</Properties>
+
+				</Variable>
+				<Variable Class="AuxVariable">
+					<Id>1696903177708</Id>
+					<Name><![CDATA[RelativeChangeForSubs]]></Name>
+					<X>-950</X><Y>-350</Y>
+					<Label><X>-45</X><Y>-15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties External="false" Constant="false" Array="true">
+						<Formula><![CDATA[0]]></Formula>
+						<Value><![CDATA[0]]></Value>
+						<Color/>
+						<Array>
+							<Dimension>
+								<PackageName><![CDATA[global_warming]]></PackageName>
+								<ClassName><![CDATA[PrimaryFuels]]></ClassName>
+							</Dimension>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[PrimaryFuels]]></ClassName>
+									<ItemName><![CDATA[PCoal]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[time(YEAR)<=70?(((tbChangeForCoal.get((-1)*subsOrTaxSrc.get(ECoal))-1)/70)*time(YEAR)+1):tbChangeForCoal.get((-1)*subsOrTaxSrc.get(ECoal))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[PrimaryFuels]]></ClassName>
+									<ItemName><![CDATA[POil]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[time(YEAR)<=70?(((tbChangeForOil.get((-1)*subsOrTaxSrc.get(EOil))-1)/70)*time(YEAR)+1):tbChangeForOil.get((-1)*subsOrTaxSrc.get(EOil))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[PrimaryFuels]]></ClassName>
+									<ItemName><![CDATA[PGas]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[time(YEAR)<=70?(((tbChangeForGas.get((-1)*subsOrTaxSrc.get(EGas))-1)/70)*time(YEAR)+1):tbChangeForGas.get((-1)*subsOrTaxSrc.get(EGas))]]></Expression>
+							</CustomExpression>
+							<CustomExpression>
+								<Coordinate>
+									<PackageName><![CDATA[global_warming]]></PackageName>
+									<ClassName><![CDATA[PrimaryFuels]]></ClassName>
+									<ItemName><![CDATA[PBio]]></ItemName>
+								</Coordinate>
+								<Expression><![CDATA[time(YEAR)<=70?(((tbChangeForBio.get((-1)*subsOrTaxSrc.get(EBio))-1)/70)*time(YEAR)+1):tbChangeForBio.get((-1)*subsOrTaxSrc.get(EBio))]]></Expression>
+							</CustomExpression>
+						</Array>
 					</Properties>
 
 				</Variable>
@@ -7692,21 +8046,6 @@ espesor de la capa de agua]]></Description>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1694291152821" TargetId="1694291349349" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>-60</X><Y>50</Y></Direction>
-					<Id>1694293786308</Id>
-					<Name><![CDATA[IndicatedCBioenergy - IndicatedLandHarvestedBionergy]]></Name>
-					<X>1180</X><Y>-280</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
 				<Link SourceId="1694291232623" TargetId="1694291349349" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
@@ -8119,21 +8458,6 @@ espesor de la capa de agua]]></Description>
 					<Id>1694400390794</Id>
 					<Name><![CDATA[DefOthReduced - LandDeforestedToOther]]></Name>
 					<X>580</X><Y>-240</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1693985372732" TargetId="1694291441696" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>340</X><Y>130</Y></Direction>
-					<Id>1694404809509</Id>
-					<Name><![CDATA[RelativeDeforestation - LandHarvestedForBioenergy]]></Name>
-					<X>670</X><Y>-320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10572,36 +10896,6 @@ espesor de la capa de agua]]></Description>
 					<LineWidth>1</LineWidth>
 					<Delay>false</Delay>
 				</Link>
-				<Link SourceId="1695575910319" TargetId="1695797579699" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>80</X><Y>110</Y></Direction>
-					<Id>1695797673901</Id>
-					<Name><![CDATA[CarbonTaxPerTonCO2 - RelativeReduceForFuel]]></Name>
-					<X>-1260</X><Y>-530</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
-				<Link SourceId="1695797579699" TargetId="1695795088597" Polarity="null">
-					<Height>20.0</Height>
-					<PolarityPosition>0.95</PolarityPosition>
-					<Direction><X>190</X><Y>150</Y></Direction>
-					<Id>1695797738305</Id>
-					<Name><![CDATA[RelativeReduceForFuel - PrimaryNonelecEnergyByFuel]]></Name>
-					<X>-1180</X><Y>-420</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Color/>
-					<LineWidth>1</LineWidth>
-					<Delay>false</Delay>
-				</Link>
 				<Link SourceId="1696478102533" TargetId="1695575910319" Polarity="null">
 					<Height>20.0</Height>
 					<PolarityPosition>0.95</PolarityPosition>
@@ -10654,6 +10948,276 @@ espesor de la capa de agua]]></Description>
 					<Id>1696478978278</Id>
 					<Name><![CDATA[subsOrTaxSrc - RenewSubs]]></Name>
 					<X>-770</X><Y>-490</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696478102533" TargetId="1695795088597" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>380</X><Y>210</Y></Direction>
+					<Id>1696806913321</Id>
+					<Name><![CDATA[inpCarbonTaxPerTonCO2 - PrimaryNonelecEnergyByFuel]]></Name>
+					<X>-1370</X><Y>-480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696478102533" TargetId="1696809677191" Polarity="null">
+					<Height>0.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>250</X><Y>180</Y></Direction>
+					<Id>1696810273155</Id>
+					<Name><![CDATA[inpCarbonTaxPerTonCO2 - RelativeReduceTaxCarbon]]></Name>
+					<X>-1370</X><Y>-480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696809677191" TargetId="1695795088597" Polarity="null">
+					<Height>-13.071</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>130</X><Y>30</Y></Direction>
+					<Id>1696816849788</Id>
+					<Name><![CDATA[RelativeReduceTaxCarbon - PrimaryNonelecEnergyByFuel]]></Name>
+					<X>-1120</X><Y>-300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695677752852" TargetId="1696867923008" Polarity="null">
+					<Height>0.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>1980</X><Y>20</Y></Direction>
+					<Id>1696868151415</Id>
+					<Name><![CDATA[primaryElecEnergyByElecPath - ForestIndicatedPrimaryEnergyDemandByCarrier]]></Name>
+					<X>-460</X><Y>-330</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696867597404" TargetId="1696867923008" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>0</X><Y>-50</Y></Direction>
+					<Id>1696868158339</Id>
+					<Name><![CDATA[CropIndicatedPrimaryEnergyDemandByCarrier - ForestIndicatedPrimaryEnergyDemandByCarrier]]></Name>
+					<X>1520</X><Y>-260</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695795088597" TargetId="1696867923008" Polarity="null">
+					<Height>0.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>2510</X><Y>-40</Y></Direction>
+					<Id>1696868532135</Id>
+					<Name><![CDATA[PrimaryNonelecEnergyByFuel - ForestIndicatedPrimaryEnergyDemandByCarrier]]></Name>
+					<X>-990</X><Y>-270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696867923008" TargetId="1696891697073" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-50</X><Y>-60</Y></Direction>
+					<Id>1696891785326</Id>
+					<Name><![CDATA[ForestIndicatedPrimaryEnergyDemandByCarrier - ForestIndicatedPrimaryEnergyDemand]]></Name>
+					<X>1520</X><Y>-310</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696891697073" TargetId="1696891820418" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-30</X><Y>-40</Y></Direction>
+					<Id>1696892133599</Id>
+					<Name><![CDATA[ForestIndicatedPrimaryEnergyDemand - ForestIndicatedPrimaryEnergyDemandHarvested]]></Name>
+					<X>1470</X><Y>-370</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696891820418" TargetId="1696892220856" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-110</X><Y>-30</Y></Direction>
+					<Id>1696892289489</Id>
+					<Name><![CDATA[ForestIndicatedPrimaryEnergyDemandHarvested - ForestBiomassProdNeededForIndicatedBioenergy]]></Name>
+					<X>1440</X><Y>-410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696892220856" TargetId="1696892887397" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-30</X><Y>110</Y></Direction>
+					<Id>1696893287590</Id>
+					<Name><![CDATA[ForestBiomassProdNeededForIndicatedBioenergy - IndicatedCFromBioenergy]]></Name>
+					<X>1330</X><Y>-440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695677752852" TargetId="1696867597404" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>1980</X><Y>70</Y></Direction>
+					<Id>1696896434637</Id>
+					<Name><![CDATA[primaryElecEnergyByElecPath - CropIndicatedPrimaryEnergyDemandByCarrier]]></Name>
+					<X>-460</X><Y>-330</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1695795088597" TargetId="1696867597404" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>2510</X><Y>10</Y></Direction>
+					<Id>1696896447856</Id>
+					<Name><![CDATA[PrimaryNonelecEnergyByFuel - CropIndicatedPrimaryEnergyDemandByCarrier]]></Name>
+					<X>-990</X><Y>-270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696867597404" TargetId="1696896472781" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-70</X><Y>30</Y></Direction>
+					<Id>1696896581239</Id>
+					<Name><![CDATA[CropIndicatedPrimaryEnergyDemandByCarrier - CropIndicatedPrimaryEnergyDemand]]></Name>
+					<X>1520</X><Y>-260</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696896472781" TargetId="1696896605022" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-120</X><Y>80</Y></Direction>
+					<Id>1696896672186</Id>
+					<Name><![CDATA[CropIndicatedPrimaryEnergyDemand - CropBioProdNeededForIndicatedBioenergy]]></Name>
+					<X>1450</X><Y>-230</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696896605022" TargetId="1696892887397" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-30</X><Y>-180</Y></Direction>
+					<Id>1696896728059</Id>
+					<Name><![CDATA[CropBioProdNeededForIndicatedBioenergy - IndicatedCFromBioenergy]]></Name>
+					<X>1330</X><Y>-150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696892887397" TargetId="1694291349349" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-180</X><Y>100</Y></Direction>
+					<Id>1696897892209</Id>
+					<Name><![CDATA[IndicatedCFromBioenergy - IndicatedLandHarvestedBionergy]]></Name>
+					<X>1300</X><Y>-330</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696478186661" TargetId="1696903177708" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-180</X><Y>140</Y></Direction>
+					<Id>1696904146548</Id>
+					<Name><![CDATA[subsOrTaxSrc - RelativeChangeForSubs]]></Name>
+					<X>-770</X><Y>-490</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Color/>
+					<LineWidth>1</LineWidth>
+					<Delay>false</Delay>
+				</Link>
+				<Link SourceId="1696903177708" TargetId="1695795088597" Polarity="null">
+					<Height>20.0</Height>
+					<PolarityPosition>0.95</PolarityPosition>
+					<Direction><X>-40</X><Y>80</Y></Direction>
+					<Id>1696904393681</Id>
+					<Name><![CDATA[RelativeChangeForSubs - PrimaryNonelecEnergyByFuel]]></Name>
+					<X>-950</X><Y>-350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14947,6 +15511,366 @@ if(time(YEAR) > 15) {
 					<Value><![CDATA[63.22]]></Value>
 					<Value><![CDATA[75.12]]></Value>
 				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696805989809</Id>
+					<Name><![CDATA[tbReduceForCoal]]></Name>
+					<X>-1050</X><Y>-470</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[0.0]]></Argument>
+					<Argument><![CDATA[125.0]]></Argument>
+					<Argument><![CDATA[190.0]]></Argument>
+					<Argument><![CDATA[250.0]]></Argument>
+					<Value><![CDATA[1.0]]></Value>
+					<Value><![CDATA[0.099]]></Value>
+					<Value><![CDATA[0.033]]></Value>
+					<Value><![CDATA[0.011]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696806041555</Id>
+					<Name><![CDATA[tbReduceForOil]]></Name>
+					<X>-980</X><Y>-450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[0.0]]></Argument>
+					<Argument><![CDATA[125.0]]></Argument>
+					<Argument><![CDATA[250.0]]></Argument>
+					<Value><![CDATA[1.0]]></Value>
+					<Value><![CDATA[0.74]]></Value>
+					<Value><![CDATA[0.439]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696806046359</Id>
+					<Name><![CDATA[tbReduceForGas]]></Name>
+					<X>-1050</X><Y>-420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[0.0]]></Argument>
+					<Argument><![CDATA[125.0]]></Argument>
+					<Argument><![CDATA[190.0]]></Argument>
+					<Argument><![CDATA[250.0]]></Argument>
+					<Value><![CDATA[1.0]]></Value>
+					<Value><![CDATA[0.16]]></Value>
+					<Value><![CDATA[0.1]]></Value>
+					<Value><![CDATA[0.098]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696806048873</Id>
+					<Name><![CDATA[tbRelativeForBio]]></Name>
+					<X>-980</X><Y>-400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[0.0]]></Argument>
+					<Argument><![CDATA[125.0]]></Argument>
+					<Argument><![CDATA[250.0]]></Argument>
+					<Value><![CDATA[0.0]]></Value>
+					<Value><![CDATA[8.9]]></Value>
+					<Value><![CDATA[12.0]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696891867124</Id>
+					<Name><![CDATA[EstimatedForestEnergyFueledBioFromResidues]]></Name>
+					<X>1560</X><Y>-470</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[2.12]]></Value>
+					<Value><![CDATA[3.89]]></Value>
+					<Value><![CDATA[0.416]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696892959174</Id>
+					<Name><![CDATA[FractionOfMaxYoungForestCAvailable]]></Name>
+					<X>1450</X><Y>-550</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[0.078]]></Value>
+					<Value><![CDATA[0.11]]></Value>
+					<Value><![CDATA[0.1396]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696893050383</Id>
+					<Name><![CDATA[FractionOfMaxMedForestCAvailable]]></Name>
+					<X>1450</X><Y>-530</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[0.065]]></Value>
+					<Value><![CDATA[0.1097]]></Value>
+					<Value><![CDATA[0.142]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696893056176</Id>
+					<Name><![CDATA[FractionOfMaxMatureForestCAvailable]]></Name>
+					<X>1450</X><Y>-510</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[2000.0]]></Argument>
+					<Argument><![CDATA[2050.0]]></Argument>
+					<Argument><![CDATA[2100.0]]></Argument>
+					<Value><![CDATA[0.847]]></Value>
+					<Value><![CDATA[0.778]]></Value>
+					<Value><![CDATA[0.719]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696902406039</Id>
+					<Name><![CDATA[tbChangeForCoal]]></Name>
+					<X>-1149</X><Y>-249</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[-15.0]]></Argument>
+					<Argument><![CDATA[0.0]]></Argument>
+					<Argument><![CDATA[50.0]]></Argument>
+					<Argument><![CDATA[100.0]]></Argument>
+					<Value><![CDATA[1.105]]></Value>
+					<Value><![CDATA[1.0]]></Value>
+					<Value><![CDATA[0.69]]></Value>
+					<Value><![CDATA[0.44]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696902407548</Id>
+					<Name><![CDATA[tbChangeForOil]]></Name>
+					<X>-1079</X><Y>-229</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[-15.0]]></Argument>
+					<Argument><![CDATA[0.0]]></Argument>
+					<Argument><![CDATA[40.0]]></Argument>
+					<Argument><![CDATA[85.0]]></Argument>
+					<Value><![CDATA[1.12]]></Value>
+					<Value><![CDATA[1.0]]></Value>
+					<Value><![CDATA[0.71]]></Value>
+					<Value><![CDATA[0.432]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696902407611</Id>
+					<Name><![CDATA[tbChangeForGas]]></Name>
+					<X>-1149</X><Y>-199</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[-0.7]]></Argument>
+					<Argument><![CDATA[0.0]]></Argument>
+					<Argument><![CDATA[2.5]]></Argument>
+					<Argument><![CDATA[5.0]]></Argument>
+					<Value><![CDATA[1.12]]></Value>
+					<Value><![CDATA[1.0]]></Value>
+					<Value><![CDATA[0.65]]></Value>
+					<Value><![CDATA[0.386]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1696903407428</Id>
+					<Name><![CDATA[tbChangeForBio]]></Name>
+					<X>-1080</X><Y>-180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>SPLINE</InterpolationMethod>
+					<OutOfRangeBehaviour>ERROR</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<ValuesQuery>
+						<TableReference>
+						</TableReference>
+							<ArgumentColumnReference>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[-25.0]]></Argument>
+					<Argument><![CDATA[0.0]]></Argument>
+					<Argument><![CDATA[10.0]]></Argument>
+					<Argument><![CDATA[25.0]]></Argument>
+					<Value><![CDATA[1.18]]></Value>
+					<Value><![CDATA[1.0]]></Value>
+					<Value><![CDATA[0.94]]></Value>
+					<Value><![CDATA[0.788]]></Value>
+				</TableFunction>
 			</TableFunctions>
 			<AgentLinks>
 				<AgentLink>
@@ -17292,7 +18216,7 @@ Global]]></Text>
 					<Id>1696462407627</Id>
 					<Expression><![CDATA[my_dataset]]></Expression>
 					<Color>-2987746</Color>
-					<Expression2><![CDATA[FarmlandExpansion]]></Expression2>
+					<Expression2><![CDATA[LandArea[Farmland]/1000000]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>2.0</LineWidth>
@@ -17731,7 +18655,7 @@ Global]]></Text>
 					<Id>1696474940097</Id>
 					<Expression><![CDATA[my_dataset]]></Expression>
 					<Color>-16758272</Color>
-					<Expression2><![CDATA[LandArea.get(NonAfMatureF) + LandArea.get(AfMatureF)]]></Expression2>
+					<Expression2><![CDATA[(LandArea.get(NonAfMatureF) + LandArea.get(AfMatureF))/1000000]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 							<Title><![CDATA[Bosques maduros]]></Title>
 					</DatasetExpression>
@@ -17739,7 +18663,7 @@ Global]]></Text>
 					<Id>1696474952167</Id>
 					<Expression><![CDATA[my_dataset1]]></Expression>
 					<Color>-14513374</Color>
-					<Expression2><![CDATA[LandArea.get(NonAfMedF) + LandArea.get(AfMedF)]]></Expression2>
+					<Expression2><![CDATA[(LandArea.get(NonAfMedF) + LandArea.get(AfMedF))/1000000]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 							<Title><![CDATA[Bosques intermedios]]></Title>
 					</DatasetExpression>
@@ -17747,7 +18671,7 @@ Global]]></Text>
 					<Id>1696474954884</Id>
 					<Expression><![CDATA[my_dataset2]]></Expression>
 					<Color>-6632142</Color>
-					<Expression2><![CDATA[LandArea.get(NonAfYoungF) + LandArea.get(AfYoungF)]]></Expression2>
+					<Expression2><![CDATA[(LandArea.get(NonAfYoungF) + LandArea.get(AfYoungF))/1000000]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 							<Title><![CDATA[Bosques jóvenes]]></Title>
 					</DatasetExpression>
@@ -18164,6 +19088,7 @@ Global]]></Text>
 						<Orientation>HORIZONTAL</Orientation>
 						<MinValue><![CDATA[-10]]></MinValue>
 						<MaxValue><![CDATA[1]]></MaxValue>
+						<Step><![CDATA[0.1]]></Step>
 						<LinkTo>true</LinkTo>
 						<Link>defValue</Link>
 					</ExtendedProperties>
@@ -18230,6 +19155,7 @@ Global]]></Text>
 						<Orientation>HORIZONTAL</Orientation>
 						<MinValue><![CDATA[0]]></MinValue>
 						<MaxValue><![CDATA[100]]></MaxValue>
+						<Step><![CDATA[0.1]]></Step>
 						<LinkTo>true</LinkTo>
 						<Link>affValue</Link>
 					</ExtendedProperties>
@@ -18364,8 +19290,8 @@ Global]]></Text>
 					<ExtendedProperties>
 						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
 						<Orientation>HORIZONTAL</Orientation>
-						<MinValue><![CDATA[-0.02]]></MinValue>
-						<MaxValue><![CDATA[0.05]]></MaxValue>
+						<MinValue><![CDATA[-0.05]]></MinValue>
+						<MaxValue><![CDATA[0.02]]></MaxValue>
 						<Step><![CDATA[0.01]]></Step>
 						<LinkTo>true</LinkTo>
 						<Link>rwSubsValue</Link>
@@ -18406,7 +19332,7 @@ Global]]></Text>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[value]]></Text>
-					<TextCode><![CDATA["-"+rws_slider.getValue()+" $/kWh"]]></TextCode>
+					<TextCode><![CDATA[rws_slider.getValue()+" $/kWh"]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>10</Size>
@@ -18431,8 +19357,8 @@ Global]]></Text>
 					<ExtendedProperties>
 						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
 						<Orientation>HORIZONTAL</Orientation>
-						<MinValue><![CDATA[-100]]></MinValue>
-						<MaxValue><![CDATA[15]]></MaxValue>
+						<MinValue><![CDATA[-15]]></MinValue>
+						<MaxValue><![CDATA[100]]></MaxValue>
 						<Step><![CDATA[1]]></Step>
 						<LinkTo>true</LinkTo>
 						<Link>coalValue</Link>
@@ -18473,7 +19399,7 @@ Global]]></Text>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[value]]></Text>
-					<TextCode><![CDATA["-"+coal_slider.getValue()+" $/tec"]]></TextCode>
+					<TextCode><![CDATA[coal_slider.getValue()+" $/tec"]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>10</Size>
@@ -18493,13 +19419,13 @@ Global]]></Text>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<BasicProperties Width="100" Height="30">
                         <EmbeddedIcon>false</EmbeddedIcon>	
-						<Enabled>false</Enabled>
+						<Enabled>true</Enabled>
 					</BasicProperties>
 					<ExtendedProperties>
 						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
 						<Orientation>HORIZONTAL</Orientation>
-						<MinValue><![CDATA[-85]]></MinValue>
-						<MaxValue><![CDATA[15]]></MaxValue>
+						<MinValue><![CDATA[-15]]></MinValue>
+						<MaxValue><![CDATA[85]]></MaxValue>
 						<Step><![CDATA[1]]></Step>
 						<LinkTo>true</LinkTo>
 						<Link>oilValue</Link>
@@ -18540,7 +19466,7 @@ Global]]></Text>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[value]]></Text>
-					<TextCode><![CDATA["-"+oil_slider.getValue()+" $/bep"]]></TextCode>
+					<TextCode><![CDATA[oil_slider.getValue()+" $/bep"]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>10</Size>
@@ -18565,8 +19491,8 @@ Global]]></Text>
 					<ExtendedProperties>
 						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
 						<Orientation>HORIZONTAL</Orientation>
-						<MinValue><![CDATA[-5]]></MinValue>
-						<MaxValue><![CDATA[0.7]]></MaxValue>
+						<MinValue><![CDATA[-0.7]]></MinValue>
+						<MaxValue><![CDATA[5]]></MaxValue>
 						<Step><![CDATA[0.1]]></Step>
 						<LinkTo>true</LinkTo>
 						<Link>gasValue</Link>
@@ -18607,7 +19533,7 @@ Global]]></Text>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[value]]></Text>
-					<TextCode><![CDATA["-"+gas_slider.getValue()+" $/Mpc"]]></TextCode>
+					<TextCode><![CDATA[gas_slider.getValue()+" $/Mpc"]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>10</Size>
@@ -18674,7 +19600,7 @@ Global]]></Text>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[value]]></Text>
-					<TextCode><![CDATA["-"+bioe_slider.getValue()+" $/bep"]]></TextCode>
+					<TextCode><![CDATA[bioe_slider.getValue()+" $/bep"]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>10</Size>
@@ -18823,7 +19749,7 @@ Global]]></Text>
 				<Parameter>
 					<ParameterName><![CDATA[subsOrTaxSrc]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[{coalValue, oilValue, gasValue, bioenergyValue, 0, rwSubsValue, rwSubsValue, rwSubsValue, rwSubsValue, rwSubsValue}]]></Code>
+						<Code><![CDATA[{-coalValue, -oilValue, -gasValue, -bioenergyValue, 0, -rwSubsValue, -rwSubsValue, -rwSubsValue, -rwSubsValue, -rwSubsValue}]]></Code>
 					</ParameterValue>
 				</Parameter>
 			</Parameters>			
