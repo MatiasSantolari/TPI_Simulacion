@@ -18216,7 +18216,7 @@ Global]]></Text>
 					<Id>1696462407627</Id>
 					<Expression><![CDATA[my_dataset]]></Expression>
 					<Color>-2987746</Color>
-					<Expression2><![CDATA[LandArea[Farmland]/1000000]]></Expression2>
+					<Expression2><![CDATA[LandArea.get(Farmland)/1000000]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>2.0</LineWidth>
